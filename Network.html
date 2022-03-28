@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Network &mdash; SBMLDiagrams 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Compartment" href="Compartment.html" />
+    <link rel="prev" title="Welcome to SBMLDiagrams’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SBMLDiagrams
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compartment.html">Compartment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Node.html">Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reaction.html">Reaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArbitraryText.html">ArbitraryText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArbitraryShape.html">ArbitraryShape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Colors.html">Colors</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SBMLDiagrams</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Network</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Network.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="network">
+<span id="id1"></span><h1>Network<a class="headerlink" href="#network" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="SBMLDiagrams.load">
+<code class="sig-prename descclassname">SBMLDiagrams.</code><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sbmlstr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load SBML string for further process, i.e. read, edit, visualize the SBML string or
+export it to an updated SBML string.</p>
+<dl class="simple">
+<dt>Args: </dt><dd><p>sbmlstr: str-the SBML string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.autolayout">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">autolayout</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">layout</span><span class="o">=</span><span class="default_value">'spectral'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.autolayout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Autolayout the node positions using networkX library.</p>
+<dl>
+<dt>Args:</dt><dd><p>layout: str-the layout name from the networkX.</p>
+<p>spectral(default): positioning the nodes using the eigenvectors of the graph Laplacian.</p>
+<p>spring: positioning nodes using Fruchterman-Reingold force-directed algorithm.</p>
+<p>random: positioning nodes randomly.</p>
+<p>circular: positioning nodes on a circle.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.draw">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">draw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">setImageSize</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">fileFormat</span><span class="o">=</span><span class="default_value">'PNG'</span></em>, <em class="sig-param"><span class="n">output_fileName</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">reactionLineType</span><span class="o">=</span><span class="default_value">'bezier'</span></em>, <em class="sig-param"><span class="n">showBezierHandles</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">showReactionIds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">showReversible</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">longText</span><span class="o">=</span><span class="default_value">'auto-font'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw to a PNG/JPG/PDF file.</p>
+<dl>
+<dt>Args: </dt><dd><p>setImageSize: list-1*2 matrix-size of the rectangle [width, height].</p>
+<p>scale: float-makes the figure output size = scale * default output size.
+Increasing the scale can make the resolution higher.</p>
+<p>fileFormat: str-output file type: ‘PNG’ (default), ‘JPEG’ or ‘PDF’.</p>
+<p>output_fileName: str-filename: ‘’ (default: will not save the file), 
+or ‘fileName’ (self-designed file name).</p>
+<p>reactionLineType: str-type of the reaction line: ‘straight’ or ‘bezier’ (default).
+If there is no layout information from the SBML file, all reaction lines will look like
+straight lines even set as ‘bezier’ because they are set as default center and handle positions.</p>
+<p>showBezierHandles: bool-show the Bezier handles (True) or not (False as default).</p>
+<p>showReactionIds: bool-show the reaction ids (True) or not (False as default).</p>
+<p>showReversible: bool-show the reaction reversible (True) or not (False as default).</p>
+<p>longText: str-‘auto-font’(default) will automatically decrease the font size to fit to the 
+node; ‘ellipsis’ will show ‘….’ if the text is too long to show in the node</p>
+</dd>
+<dt>Returns:</dt><dd><p>The visualization info object containing the drawing information of the plot.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.getNetworkTopLeftCorner">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNetworkTopLeftCorner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNetworkTopLeftCorner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the top left-hand corner of the network(s) from the SBML string.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>position: list-[position_x, position_y], top left-hand corner of the network(s).
+It is calculated by the minimum positions of compartments, nodes, centroid and handle 
+positions of reactions, excluding the compartment with the id of _compartment_default_.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.getNetworkBottomRightCorner">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNetworkBottomRightCorner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNetworkBottomRightCorner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the bottom right-hand corner of the network(s) from the SBML string.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>position: list-[position_x, position_y],bottom right-hand corner of the network(s).
+It is calculated by the maximum right down corner positions of compartments and nodes, 
+excluding the compartment with the id of _compartment_default_.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.getNetworkSize">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNetworkSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNetworkSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the size of the network(s).</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>list-1*2 matrix-size of the rectangle [width, height].</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.export">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">export</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write to an SBML string.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>SBMLStr_layout_render: str-the string of the output sbml file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.getColorStyle">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getColorStyle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getColorStyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current color style.</p>
+<dl class="simple">
+<dt>Returns: </dt><dd><p>The current color style.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.setColorStyle">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setColorStyle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">styleName</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">newStyle</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setColorStyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the color style.</p>
+<dl>
+<dt>Args:</dt><dd><p>styleName: the style name.</p>
+<p>newStyle: the user customized style class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Compartment.html" class="btn btn-neutral float-right" title="Compartment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to SBMLDiagrams’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Jin Xu
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

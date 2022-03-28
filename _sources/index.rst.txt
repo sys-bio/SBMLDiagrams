@@ -10,9 +10,13 @@ Welcome to SBMLDiagrams's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   processSBML
-   visualizeSBML
-   colors
+   Network
+   Compartment
+   Node
+   Reaction
+   ArbitraryText
+   ArbitraryShape
+   Colors
 
 ------------
 Introduction
@@ -21,8 +25,7 @@ Introduction
 SBMLDiagrams is a Python package to visualize networks embedded in SBML Level 3 models. If the SBML 
 layout and render extension are used, the package will use this data to display the network. 
 SBMLDiagrams can export PNG, JPG, PDF files. SBMLDiagrams can be used to add SBML layout and render 
-to an existing SBML model which can be subsequently be exported. If you use this python package, 
-please cite the Gihub website (https://github.com/SunnyXu/SBMLDiagrams).
+to an existing valid SBML model which can be subsequently be exported.
 
 We also have an interface of SBMLDiagrams to NetworkX to exploit the variety of layout algorithms as well 
 as SBbadger which is a tool for generating realistic but random biochemical networks. 
@@ -54,7 +57,7 @@ Code Examples
    ''')
 
    df = SBMLDiagrams.load(r.getSBML())
-   df.autolayout(layout="spectral")
+   df.autolayout()
    df.draw()
 
 
@@ -66,7 +69,7 @@ Code Examples
    import os
 
    dirname = "path//to"
-   filename = "test.xml"
+   filename = "SBML_file.xml"
 
    f = open(os.path.join(dirname, filename), 'r')
    sbmlStr = f.read()
