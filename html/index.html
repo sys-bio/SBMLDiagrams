@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Network" href="Network.html" /> 
+    <link rel="next" title="Introduction" href="Introduction.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,6 +83,8 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Network.html">Network</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Compartment.html">Compartment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Node.html">Node</a></li>
@@ -160,6 +162,12 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#figure-examples">Figure Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Network.html">Network</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Compartment.html">Compartment</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Compartment.html#read-the-compartment-information">Read the compartment information.</a></li>
@@ -197,95 +205,8 @@ layout and render extension are used, the package will use this data to display 
 SBMLDiagrams can export PNG, JPG, PDF files. SBMLDiagrams can be used to add SBML layout and render
 to an existing valid SBML model which can be subsequently be exported.</p>
 <p>We also have an interface of SBMLDiagrams to NetworkX to exploit the variety of layout algorithms as well
-as SBbadger which is a tool for generating realistic but random biochemical networks.</p>
-</div>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>To install SBMLDiagrams use</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">SBMLDiagrams</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="code-examples">
-<h2>Code Examples<a class="headerlink" href="#code-examples" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li><p>Load and visualize an SBML file.</p></li>
-</ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">SBMLDiagrams</span>
-<span class="kn">import</span> <span class="nn">tellurium</span> <span class="k">as</span> <span class="nn">te</span>
-
-<span class="n">r</span> <span class="o">=</span> <span class="n">te</span><span class="o">.</span><span class="n">loada</span> <span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">A -&gt; B; v; B -&gt; C; v; C -&gt; D; v;</span>
-<span class="s1">v = 0</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">SBMLDiagrams</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">getSBML</span><span class="p">())</span>
-<span class="n">df</span><span class="o">.</span><span class="n">autolayout</span><span class="p">()</span>
-<span class="n">df</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-</pre></div>
-</div>
-<ol class="arabic simple" start="2">
-<li><p>Load, read, edit and export to an SBML file.</p></li>
-</ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">SBMLDiagrams</span>
-<span class="kn">import</span> <span class="nn">os</span>
-
-<span class="n">dirname</span> <span class="o">=</span> <span class="s2">&quot;path//to&quot;</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;SBML_file.xml&quot;</span>
-
-<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">filename</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">sbmlStr</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">SBMLDiagrams</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">sbmlStr</span><span class="p">)</span>
-
-<span class="c1">#get layout</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">getCompartmentPosition</span><span class="p">(</span><span class="s2">&quot;compartment_id&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">getNodeSize</span><span class="p">(</span><span class="s2">&quot;node_id&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">getReactionCenterPosition</span><span class="p">(</span><span class="s2">&quot;reaction_id&quot;</span><span class="p">))</span>
-
-<span class="c1">#get render</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">getCompartmentFillColor</span><span class="p">(</span><span class="s2">&quot;compartment_id&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">getNodeShape</span><span class="p">(</span><span class="s2">&quot;node_id&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">getReactionFillColor</span><span class="p">(</span><span class="s2">&quot;reaction_id&quot;</span><span class="p">))</span>
-
-<span class="c1">#set layout</span>
-<span class="n">df</span><span class="o">.</span><span class="n">setCompartmentSize</span><span class="p">((</span><span class="s2">&quot;compartment_id&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
-<span class="n">df</span><span class="o">.</span><span class="n">setNodeTextPosition</span><span class="p">((</span><span class="s2">&quot;node_id&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
-
-<span class="c1">#set render</span>
-<span class="c1"># There are three ways to set colors and the opacity is optional:</span>
-<span class="c1"># 1) list-decimal rgb 1*3 matrix, i.e. [255, 255, 255];</span>
-<span class="c1"># 2) str-html name, i.e. &quot;white&quot;;</span>
-<span class="c1"># 3) str-hex string (6-digit), i.e. &quot;#000000&quot;;</span>
-<span class="n">df</span><span class="o">.</span><span class="n">setCompartmentBorderColor</span><span class="p">(</span><span class="s2">&quot;compartment_id&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">])</span>
-<span class="n">df</span><span class="o">.</span><span class="n">setNodeFillColor</span><span class="p">(</span><span class="s2">&quot;node_id&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">opacity</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">setNodeTextFontColor</span><span class="p">(</span><span class="s2">&quot;node_id&quot;</span><span class="p">,</span> <span class="s2">&quot;#000000&quot;</span><span class="p">,</span> <span class="n">opacity</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">setReactionLineThickness</span><span class="p">(</span><span class="s2">&quot;reaction_id&quot;</span><span class="p">,</span> <span class="mf">3.</span><span class="p">)</span>
-
-<span class="n">sbmlStr_layout_render</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">export</span><span class="p">()</span>
-<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">sbmlStr_layout_render</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="figure-examples">
-<h2>Figure Examples<a class="headerlink" href="#figure-examples" title="Permalink to this headline">¶</a></h2>
-<p>1) An example without compartment. There are different shapes of nodes with different fill colors.
-Texts can be placed outside the nodes with designed positions. There are also reactions with different
-fill colors. x_1 is an example of alias node.</p>
-<a class="reference internal image-reference" href="_images/test_no_comp.png"><img alt="_images/test_no_comp.png" src="_images/test_no_comp.png" style="width: 400px;" /></a>
-<p>2) An example with compartments. The compartments are filled with different colors. There are
-different shapes of nodes with different border colors. x_1 and x_5 are examples of alias nodes.</p>
-<a class="reference internal image-reference" href="_images/test_comp.png"><img alt="_images/test_comp.png" src="_images/test_comp.png" style="width: 400px;" /></a>
-<p>3) An example with only nodes (no reactions in the network). There are five types of node shapes
-with different fill colors and border colors.</p>
-<a class="reference internal image-reference" href="_images/node_grid.png"><img alt="_images/node_grid.png" src="_images/node_grid.png" style="width: 400px;" /></a>
-<ol class="arabic simple" start="4">
-<li><p>An example with long text contents.</p></li>
-</ol>
-<a class="reference internal image-reference" href="_images/Jana_WolfGlycolysis.png"><img alt="_images/Jana_WolfGlycolysis.png" src="_images/Jana_WolfGlycolysis.png" style="width: 400px;" /></a>
+as SBbadger which is a tool for generating realistic but random biochemical networks. If you are
+using any of the code, please cite the PYPI web page (<a class="reference external" href="https://pypi.org/project/SBMLDiagrams/">https://pypi.org/project/SBMLDiagrams/</a>). Thanks.</p>
 </div>
 </div>
 
@@ -297,7 +218,7 @@ with different fill colors and border colors.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Network.html" class="btn btn-neutral float-right" title="Network" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Introduction.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>

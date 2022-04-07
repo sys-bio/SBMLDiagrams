@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorial &mdash; SBMLDiagrams 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Network" href="Network.html" />
+    <link rel="prev" title="Introduction" href="Introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SBMLDiagrams
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Network.html">Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compartment.html">Compartment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Node.html">Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reaction.html">Reaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArbitraryText.html">ArbitraryText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ArbitraryShape.html">ArbitraryShape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Colors.html">Colors</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SBMLDiagrams</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Tutorial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Tutorial.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tutorial">
+<span id="id1"></span><h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><p>Load and visualize an SBML file.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">SBMLDiagrams</span>
+<span class="kn">import</span> <span class="nn">tellurium</span> <span class="k">as</span> <span class="nn">te</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">te</span><span class="o">.</span><span class="n">loada</span> <span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">A -&gt; B; v; B -&gt; C; v; C -&gt; D; v;</span>
+<span class="s1">v = 0</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">SBMLDiagrams</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">getSBML</span><span class="p">())</span>
+<span class="n">df</span><span class="o">.</span><span class="n">autolayout</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Load, read, edit and export to an SBML file.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">SBMLDiagrams</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">dirname</span> <span class="o">=</span> <span class="s2">&quot;path//to&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;SBML_file.xml&quot;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">filename</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+     <span class="n">sbmlStr</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">SBMLDiagrams</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">sbmlStr</span><span class="p">)</span>
+
+<span class="c1">#get layout</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">getCompartmentPosition</span><span class="p">(</span><span class="s2">&quot;compartment_id&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">getNodeSize</span><span class="p">(</span><span class="s2">&quot;node_id&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">getReactionCenterPosition</span><span class="p">(</span><span class="s2">&quot;reaction_id&quot;</span><span class="p">))</span>
+
+<span class="c1">#get render</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">getCompartmentFillColor</span><span class="p">(</span><span class="s2">&quot;compartment_id&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">getNodeShape</span><span class="p">(</span><span class="s2">&quot;node_id&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">getReactionFillColor</span><span class="p">(</span><span class="s2">&quot;reaction_id&quot;</span><span class="p">))</span>
+
+<span class="c1">#set layout</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setCompartmentSize</span><span class="p">((</span><span class="s2">&quot;compartment_id&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeTextPosition</span><span class="p">((</span><span class="s2">&quot;node_id&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+
+<span class="c1">#set render</span>
+<span class="c1"># There are three ways to set colors and the opacity is optional:</span>
+<span class="c1"># 1) list-decimal rgb 1*3 matrix, i.e. [255, 255, 255];</span>
+<span class="c1"># 2) str-html name, i.e. &quot;white&quot;;</span>
+<span class="c1"># 3) str-hex string (6-digit), i.e. &quot;#000000&quot;;</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setCompartmentBorderColor</span><span class="p">(</span><span class="s2">&quot;compartment_id&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeFillColor</span><span class="p">(</span><span class="s2">&quot;node_id&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">opacity</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeTextFontColor</span><span class="p">(</span><span class="s2">&quot;node_id&quot;</span><span class="p">,</span> <span class="s2">&quot;#000000&quot;</span><span class="p">,</span> <span class="n">opacity</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setReactionLineThickness</span><span class="p">(</span><span class="s2">&quot;reaction_id&quot;</span><span class="p">,</span> <span class="mf">3.</span><span class="p">)</span>
+
+<span class="n">sbmlStr_layout_render</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">export</span><span class="p">()</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">sbmlStr_layout_render</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Load the color style information from a JSON file..</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">SBMLDiagrams</span>
+<span class="kn">import</span> <span class="nn">tellurium</span> <span class="k">as</span> <span class="nn">te</span>
+
+<span class="n">colors</span> <span class="o">=</span> <span class="n">SBMLDiagrams</span><span class="o">.</span><span class="n">loadColorStyle</span><span class="p">(</span><span class="s2">&quot;style.json&quot;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">te</span><span class="o">.</span><span class="n">loada</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">   A -&gt; B; k1*A</span>
+<span class="s1">   B -&gt; C; k2*B</span>
+<span class="s1">   k1 = 0.1; k2 = 0.2; A = 10</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">sbmlStr</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getSBML</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">SBMLDiagrams</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">sbmlStr</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">setColorStyle</span><span class="p">(</span><span class="n">colors</span><span class="p">[</span><span class="s2">&quot;simplicity&quot;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output_fileName</span><span class="o">=</span><span class="s2">&quot;load_json_style/simplicity-color.png&quot;</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">setColorStyle</span><span class="p">(</span><span class="n">colors</span><span class="p">[</span><span class="s2">&quot;skyblue&quot;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output_fileName</span><span class="o">=</span><span class="s2">&quot;load_json_style/skyblue-color.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The file style.json:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;colorStyle&quot;</span><span class="p">:</span> <span class="p">[</span>
+   <span class="p">{</span>
+      <span class="s2">&quot;style_name&quot;</span><span class="p">:</span> <span class="s2">&quot;simplicity&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;compartment_fill_color&quot;</span><span class="p">:</span> <span class="s2">&quot;255, 255, 255, 255&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;compartment_border_color&quot;</span><span class="p">:</span> <span class="s2">&quot;255, 255, 255, 255&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;species_fill_color&quot;</span><span class="p">:</span> <span class="s2">&quot;255, 255, 255, 255&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;species_border_color&quot;</span><span class="p">:</span> <span class="s2">&quot;0, 0, 0, 255&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;reaction_line_color&quot;</span><span class="p">:</span> <span class="s2">&quot;0, 0, 0, 255&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;font_color&quot;</span><span class="p">:</span> <span class="s2">&quot;0, 0, 0, 255&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;progress_bar_fill_color&quot;</span><span class="p">:</span> <span class="s2">&quot;255, 108, 9, 200&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;progress_bar_full_fill_color&quot;</span><span class="p">:</span> <span class="s2">&quot;91, 176, 253, 200&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;progress_bar_border_color&quot;</span><span class="p">:</span> <span class="s2">&quot;255, 204, 153, 200&quot;</span>
+   <span class="p">},</span>
+
+   <span class="p">{</span>
+      <span class="s2">&quot;style_name&quot;</span><span class="p">:</span> <span class="s2">&quot;skyblue&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;compartment_fill_color&quot;</span><span class="p">:</span> <span class="s2">&quot;3, 219, 252, 255&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;compartment_border_color&quot;</span><span class="p">:</span> <span class="s2">&quot;3, 219, 252, 255&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;species_fill_color&quot;</span><span class="p">:</span> <span class="s2">&quot;23, 107, 252, 255&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;species_border_color&quot;</span><span class="p">:</span> <span class="s2">&quot;119, 3, 252, 255&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;reaction_line_color&quot;</span><span class="p">:</span> <span class="s2">&quot;3, 252, 157, 255&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;font_color&quot;</span><span class="p">:</span> <span class="s2">&quot;0, 0, 0, 255&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;progress_bar_fill_color&quot;</span><span class="p">:</span> <span class="s2">&quot;255, 108, 9, 200&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;progress_bar_full_fill_color&quot;</span><span class="p">:</span> <span class="s2">&quot;91, 176, 253, 200&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;progress_bar_border_color&quot;</span><span class="p">:</span> <span class="s2">&quot;255, 204, 153, 200&quot;</span>
+   <span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Network.html" class="btn btn-neutral float-right" title="Network" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Jin Xu
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

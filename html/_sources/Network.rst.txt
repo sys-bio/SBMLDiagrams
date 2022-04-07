@@ -22,4 +22,8 @@ Network
 
 .. autofunction:: SBMLDiagrams.load.setColorStyle
 
+.. autofunction:: SBMLDiagrams.animate
+
+.. autofunction:: SBMLDiagrams.loadColorStyle
+
 
