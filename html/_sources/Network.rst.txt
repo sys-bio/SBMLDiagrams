@@ -20,6 +20,8 @@ Network
 
 .. autofunction:: SBMLDiagrams.load.getColorStyle
 
+.. autofunction:: SBMLDiagrams.load.getColorStyleJson
+
 .. autofunction:: SBMLDiagrams.load.setColorStyle
 
 .. autofunction:: SBMLDiagrams.animate
