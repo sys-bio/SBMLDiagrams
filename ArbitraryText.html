@@ -186,7 +186,11 @@
 <dt>Args: </dt><dd><p>id: str-the id of node.</p>
 </dd>
 <dt>Returns:</dt><dd><p>txt_position_list: list of txt_position.</p>
-<p>txt_position: list-[position_x, position_y]-top left-hand corner of the rectangle.</p>
+<p>txt_position: a Point object with attributes x and y representing
+the x/y position of the top-left hand corner of the bounding box.</p>
+</dd>
+<dt>Examples: </dt><dd><p>p = sd.getNodeTextPosition(‘ATP’)[0]</p>
+<p>print (‘x = ‘, p.x, ‘y = ‘, p.y)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -199,7 +203,11 @@
 <dt>Args: </dt><dd><p>txt_str: str-the text content.</p>
 </dd>
 <dt>Returns:</dt><dd><p>txt_size_list: list of txt_size.</p>
-<p>txt_size: list-1*2 matrix-size of the rectangle [width, height].</p>
+<p>txt_size: a Point object with attributes x and y representing
+the width and height of the node.</p>
+</dd>
+<dt>Examples: </dt><dd><p>p = sd.getTextSize(‘text_content’)[0]</p>
+<p>print (‘Width = ‘, p.x, ‘Height = ‘, p.y)</p>
 </dd>
 </dl>
 </dd></dl>

@@ -186,7 +186,11 @@
 <dt>Args: </dt><dd><p>id: str-the id of the compartment.</p>
 </dd>
 <dt>Returns:</dt><dd><p>position_list: list of position.</p>
-<p>position: list-1*2 matrix-top left-hand corner of the rectangle [position_x, position_y].</p>
+<p>position: a Point object with attributes x and y representing
+the x/y position of the top-left hand corner of the bounding box.</p>
+</dd>
+<dt>Examples: </dt><dd><p>p = sd.getCompartmentPosition(‘compartment_id’)[0]</p>
+<p>print (‘x = ‘, p.x, ‘y = ‘, p.y)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -199,7 +203,11 @@
 <dt>Args: </dt><dd><p>id: str-the id of the compartment.</p>
 </dd>
 <dt>Returns:</dt><dd><p>size_list: list of size.</p>
-<p>size: list-1*2 matrix-size of the rectangle [width, height].</p>
+<p>size: a Point object with attributes x and y representing
+the width and height of the node.</p>
+</dd>
+<dt>Examples: </dt><dd><p>p = sd.getCompartmentSize(‘compartment_id’)[0]</p>
+<p>print (‘Width = ‘, p.x, ‘Height = ‘, p.y)</p>
 </dd>
 </dl>
 </dd></dl>

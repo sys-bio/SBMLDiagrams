@@ -185,7 +185,11 @@
 <dt>Args: </dt><dd><p>shape_name_str: str-the shape name of the arbitrary shape.</p>
 </dd>
 <dt>Returns:</dt><dd><p>position_list: list of position.</p>
-<p>position: list-[position_x, position_y]-top left-hand corner of the rectangle.</p>
+<p>position: a Point object with attributes x and y representing
+the x/y position of the top-left hand corner of the bounding box.</p>
+</dd>
+<dt>Examples: </dt><dd><p>p = sd.getShapePosition(‘shape_name’)[0]</p>
+<p>print (‘x = ‘, p.x, ‘y = ‘, p.y)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -198,7 +202,11 @@
 <dt>Args: </dt><dd><p>shape_name_str: str-the shape name.</p>
 </dd>
 <dt>Returns:</dt><dd><p>shape_size_list: list of shape_size.</p>
-<p>shape_size: list-1*2 matrix-size of the rectangle [width, height].</p>
+<p>shape_size: a Point object with attributes x and y representing
+the width and height of the node.</p>
+</dd>
+<dt>Examples: </dt><dd><p>p = sd.getShapeSize(‘shape_name’)[0]</p>
+<p>print (‘Width = ‘, p.x, ‘Height = ‘, p.y)</p>
 </dd>
 </dl>
 </dd></dl>

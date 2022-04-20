@@ -173,16 +173,17 @@ export it to an updated SBML string.</p>
 
 <dl class="py function">
 <dt id="SBMLDiagrams.load.autolayout">
-<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">autolayout</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">layout</span><span class="o">=</span><span class="default_value">'spectral'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.autolayout" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">autolayout</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">layout</span><span class="o">=</span><span class="default_value">'spectral'</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">200</span></em>, <em class="sig-param"><span class="n">iterations</span><span class="o">=</span><span class="default_value">100</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.autolayout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Autolayout the node positions using networkX library.</p>
-<dl>
-<dt>Args:</dt><dd><p>layout: str-the layout name from the networkX.</p>
-<p>spectral(default): positioning the nodes using the eigenvectors of the graph Laplacian.</p>
-<p>spring: positioning nodes using Fruchterman-Reingold force-directed algorithm.</p>
+<p>layout: str-the layout name from networkX, including</p>
+<blockquote>
+<div><p>spectral: positioning the nodes using the eigenvectors of the graph Laplacian;</p>
+<p>spring (default): positioning nodes using Fruchterman-Reingold force-directed algorithm;</p>
 <p>random: positioning nodes randomly.</p>
 <p>circular: positioning nodes on a circle.</p>
-</dd>
-</dl>
+</div></blockquote>
+<p>scale: float-the scale factor for positions.</p>
+<p>iterations: int-maximum number of iterations taken.</p>
 </dd></dl>
 
 <dl class="py function">

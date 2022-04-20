@@ -185,7 +185,11 @@
 <dt>Args: </dt><dd><p>id: str-the id of the reaction.</p>
 </dd>
 <dt>Returns:</dt><dd><p>line_center_position_list: list of center_position.</p>
-<p>center_position:  list-1*2 matrix: position of the center.</p>
+<p>center_position: a Point object with attributes x and y representing
+the x/y position of the top-left hand corner of the bounding box.</p>
+</dd>
+<dt>Examples: </dt><dd><p>p = sd.getReactionCenterPosition(‘reaction_id’)[0]</p>
+<p>print (‘x = ‘, p.x, ‘y = ‘, p.y)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -200,6 +204,8 @@
 <dt>Returns:</dt><dd><p>line_handle_positions_list: list of handle_positions.</p>
 <p>handle_positions: list-position of the handles: 
 [center handle, reactant handles, product handles].</p>
+<p>position: a Point object with attributes x and y representing
+the x/y position of the top-left hand corner of the bounding box.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -238,7 +244,11 @@ hex str (8 digits)].</p>
 <p>Args:</p>
 <dl>
 <dt>Returns:</dt><dd><p>arrow_head_size_list: list of arrow_head_size.</p>
-<p>arrow_head_size: list-1*2 matrix-size of the rectangle [width, height].</p>
+<p>arrow_head_size: a Point object with attributes x and y representing
+the width and height of the node.</p>
+</dd>
+<dt>Examples: </dt><dd><p>p = sd.getReactionArrowHeadSize(‘reaction_id’)[0]</p>
+<p>print (‘Width = ‘, p.x, ‘Height = ‘, p.y)</p>
 </dd>
 </dl>
 </dd></dl>
