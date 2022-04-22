@@ -211,7 +211,7 @@
 </dd>
 <dt>Returns:</dt><dd><p>position-list: list-list of position.</p>
 <p>position: a Point object with attributes x and y representing
-the x/y position of the top-left hand corner of the bounding box.</p>
+the x/y position of the top-left hand corner of the node.</p>
 </dd>
 <dt>Examples: </dt><dd><p>p = sd.getNodePosition(‘ATP’)[0]</p>
 <p>print(‘x = ‘, p.x, ‘y = ‘, p.y)</p>
@@ -275,7 +275,7 @@ the width and height of the node.</p>
 </dd>
 <dt>Returns:</dt><dd><p>txt_position_list: list of txt_position.</p>
 <p>txt_position: a Point object with attributes x and y representing
-the x/y position of the top-left hand corner of the bounding box.</p>
+the x/y position of the top-left hand corner of the node text.</p>
 </dd>
 <dt>Examples: </dt><dd><p>p = sd.getNodeTextPosition(‘ATP’)[0]</p>
 <p>print (‘x = ‘, p.x, ‘y = ‘, p.y)</p>
@@ -292,7 +292,7 @@ the x/y position of the top-left hand corner of the bounding box.</p>
 </dd>
 <dt>Returns:</dt><dd><p>txt_size_list: list of txt_size.</p>
 <p>size: a Point object with attributes x and y representing
-the width and height of the node</p>
+the width and height of the node text.</p>
 </dd>
 <dt>Examples:</dt><dd><p>p = sd.getNodeTextSize(‘ATP’)[0]</p>
 <p>print (‘Width = ‘, p.x, ‘Height = ‘, p.y)</p>
@@ -403,8 +403,12 @@ hex str (8 digits)].</p>
 <dd><p>Set the x,y coordinates of the node position.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>position: list-[position_x, position_y], the coordinate represents the top-left hand 
-corner of the node.</p>
+<p>position: list/point.Point()-</p>
+<p>list-
+[position_x, position_y], the coordinate represents the top-left hand corner of the node.</p>
+<p>point.Point()-
+a Point object with attributes x and y representing
+the x/y position of the top-left hand corner of the node.</p>
 <p>alias: int-alias node index [0, num_alias).</p>
 </dd>
 </dl>
@@ -416,8 +420,13 @@ corner of the node.</p>
 <dd><p>Set the x,y coordinates of the node and node text position if there are consistent.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>position: list-[position_x, position_y], the coordinate represents the top-left hand 
-corner of the node and node text position.</p>
+<p>position: list/point.Point()-</p>
+<p>list-
+[position_x, position_y], the coordinate represents the top-left hand corner of the 
+node and text.</p>
+<p>point.Point()-
+a Point object with attributes x and y representing
+the x/y position of the top-left hand corner of the node and text.</p>
 <p>alias: int-alias node index [0, num_alias).</p>
 </dd>
 </dl>
@@ -429,7 +438,12 @@ corner of the node and node text position.</p>
 <dd><p>Set the node size.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>size: list-1*2 matrix-size of the rectangle [width, height].</p>
+<p>size: list/point.Point()-</p>
+<p>list-
+1*2 matrix-size of the node [width, height].</p>
+<p>point.Point()-
+a Point object with attributes x and y representing the width and height of 
+the node.</p>
 <p>alias: int-alias node index [0, num_alias).</p>
 </dd>
 </dl>
@@ -441,7 +455,12 @@ corner of the node and node text position.</p>
 <dd><p>Set the node and node text size if there are consistent.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>size: list-1*2 matrix-size of the rectangle [width, height].</p>
+<p>size: list/point.Point()-</p>
+<p>list-
+1*2 matrix-size of the node and text [width, height].</p>
+<p>point.Point()-
+a Point object with attributes x and y representing the width and height of 
+the node and node text.</p>
 <p>alias: int-alias node index [0, num_alias).</p>
 </dd>
 </dl>
@@ -487,8 +506,13 @@ x represents the percentage of width, and y represents the percentage of height.
 <dd><p>Set the x,y coordinates of the node text position.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>txt_position: list-[position_x, position_y], the coordinate represents the top-left hand 
+<p>txt_position: list/point.Point()-</p>
+<p>list-
+[txt_position_x, txt_position_y], the coordinate represents the top-left hand 
 corner of the node text.</p>
+<p>point.Point()-
+a Point object with attributes x and y representing
+the x/y position of the top-left hand corner of the node text.</p>
 <p>alias: alias node index [0, num_alias).</p>
 </dd>
 </dl>
@@ -599,7 +623,12 @@ corner of the node text.</p>
 <dd><p>Set the node text size.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>txt_size: list-1*2 matrix-size of the rectangle [width, height].</p>
+<p>txt_size: list/point.Point()-</p>
+<p>list-
+1*2 matrix-size of the node text [width, height].</p>
+<p>point.Point()-
+a Point object with attributes x and y representing the width and height of 
+the node text.</p>
 <p>alias: alias node index [0, num_alias).</p>
 </dd>
 </dl>

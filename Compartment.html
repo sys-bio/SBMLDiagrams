@@ -169,11 +169,11 @@
 <dl class="py function">
 <dt id="SBMLDiagrams.load.getCompartmentIdList">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getCompartmentIdList</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getCompartmentIdList" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the list of node ids.</p>
+<dd><p>Get the list of compartment ids.</p>
 <p>Args:</p>
 <dl>
 <dt>Returns:</dt><dd><p>id_list-list of ids.</p>
-<p>id-str-node id.</p>
+<p>id-str-compartment id.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -187,7 +187,7 @@
 </dd>
 <dt>Returns:</dt><dd><p>position_list: list of position.</p>
 <p>position: a Point object with attributes x and y representing
-the x/y position of the top-left hand corner of the bounding box.</p>
+the x/y position of the top-left hand corner of the compartment.</p>
 </dd>
 <dt>Examples: </dt><dd><p>p = sd.getCompartmentPosition(‘compartment_id’)[0]</p>
 <p>print (‘x = ‘, p.x, ‘y = ‘, p.y)</p>
@@ -204,7 +204,7 @@ the x/y position of the top-left hand corner of the bounding box.</p>
 </dd>
 <dt>Returns:</dt><dd><p>size_list: list of size.</p>
 <p>size: a Point object with attributes x and y representing
-the width and height of the node.</p>
+the width and height of the compartment.</p>
 </dd>
 <dt>Examples: </dt><dd><p>p = sd.getCompartmentSize(‘compartment_id’)[0]</p>
 <p>print (‘Width = ‘, p.x, ‘Height = ‘, p.y)</p>
@@ -261,9 +261,15 @@ hex str (8 digits)].</p>
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setCompartmentPosition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">position</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setCompartmentPosition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the x,y coordinates of the compartment position.</p>
 <dl>
-<dt>Args:  </dt><dd><p>id: str-compartment id.</p>
-<p>position: list-[position_x, position_y], the coordinate represents the top-left hand corner 
-of the compartment.</p>
+<dt>Args:  </dt><dd><p>df: DataFrame-initial information.</p>
+<p>id: str-compartment id.</p>
+<p>position: list/point.Point()-</p>
+<p>list-
+[position_x, position_y], the coordinate represents the top-left hand corner of 
+the compartment.</p>
+<p>point.Point()-
+a Point object with attributes x and y representing
+the x/y position of the top-left hand corner of the compartment.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -273,8 +279,14 @@ of the compartment.</p>
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setCompartmentSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setCompartmentSize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the compartment size.</p>
 <dl>
-<dt>Args:  </dt><dd><p>id: str-compartment id.</p>
-<p>size: list-1*2 matrix-size of the rectangle [width, height].</p>
+<dt>Args:  </dt><dd><p>df: DataFrame-initial information.</p>
+<p>id: str-compartment id.</p>
+<p>size: list/point.Point()-</p>
+<p>list-
+1*2 matrix-size of the compartment [width, height].</p>
+<p>point.Point()-
+a Point object with attributes x and y representing the width and height of 
+the compartment.</p>
 </dd>
 </dl>
 </dd></dl>

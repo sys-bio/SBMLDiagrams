@@ -186,7 +186,7 @@
 </dd>
 <dt>Returns:</dt><dd><p>line_center_position_list: list of center_position.</p>
 <p>center_position: a Point object with attributes x and y representing
-the x/y position of the top-left hand corner of the bounding box.</p>
+the x/y position.</p>
 </dd>
 <dt>Examples: </dt><dd><p>p = sd.getReactionCenterPosition(‘reaction_id’)[0]</p>
 <p>print (‘x = ‘, p.x, ‘y = ‘, p.y)</p>
@@ -204,8 +204,7 @@ the x/y position of the top-left hand corner of the bounding box.</p>
 <dt>Returns:</dt><dd><p>line_handle_positions_list: list of handle_positions.</p>
 <p>handle_positions: list-position of the handles: 
 [center handle, reactant handles, product handles].</p>
-<p>position: a Point object with attributes x and y representing
-the x/y position of the top-left hand corner of the bounding box.</p>
+<p>position: a Point object with attributes x and y representing the x/y position.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -245,7 +244,7 @@ hex str (8 digits)].</p>
 <dl>
 <dt>Returns:</dt><dd><p>arrow_head_size_list: list of arrow_head_size.</p>
 <p>arrow_head_size: a Point object with attributes x and y representing
-the width and height of the node.</p>
+the width and height of the arrow head.</p>
 </dd>
 <dt>Examples: </dt><dd><p>p = sd.getReactionArrowHeadSize(‘reaction_id’)[0]</p>
 <p>print (‘Width = ‘, p.x, ‘Height = ‘, p.y)</p>
@@ -278,7 +277,11 @@ drawing a c-point line followed by a d-point gap.</p>
 <dd><p>Set the reaction center position.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-reaction id.</p>
-<p>position: list-1*2 matrix-[position_x, position_y].</p>
+<p>position: list/point.Point()-</p>
+<p>list-
+1*2 matrix-[position_x, position_y].</p>
+<p>point.Point()-
+a Point object with attributes x and y representing the x/y position.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -289,8 +292,13 @@ drawing a c-point line followed by a d-point gap.</p>
 <dd><p>Set the reaction handle positions.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-reaction id.</p>
-<p>position: list-position of the handles: [center handle, reactant handles, 
-product handles].</p>
+<p>position: list-position of the handles: [center handle, reactant handle1, …, product handle1, …].</p>
+<p>center handle/reactant handle1/product handle1: list/point.Point()-</p>
+<p>list-
+[position_x, position_y], the coordinate represents the top-left hand 
+corner of the node.</p>
+<p>point.Point()-
+a Point object with attributes x and y representing the x/y position.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -332,8 +340,13 @@ product handles].</p>
 <dt id="SBMLDiagrams.load.setReactionArrowHeadSize">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setReactionArrowHeadSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setReactionArrowHeadSize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the reaction arrow head size with a certain reaction id.</p>
-<dl class="simple">
-<dt>Args:  </dt><dd><p>size: list-1*2 matrix-size of the rectangle [width, height].</p>
+<dl>
+<dt>Args:  </dt><dd><p>size: list/point.Point()-</p>
+<p>list-
+1*2 matrix-size of the arrow head [width, height].</p>
+<p>point.Point()-
+a Point object with attributes x and y representing the width and height of 
+the arrow head.</p>
 </dd>
 </dl>
 </dd></dl>

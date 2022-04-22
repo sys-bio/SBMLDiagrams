@@ -191,7 +191,7 @@ export it to an updated SBML string.</p>
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">draw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">setImageSize</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">output_fileName</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">reactionLineType</span><span class="o">=</span><span class="default_value">'bezier'</span></em>, <em class="sig-param"><span class="n">showBezierHandles</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">showReactionIds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">showReversible</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">longText</span><span class="o">=</span><span class="default_value">'auto-font'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.draw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw to a PNG/JPG/PDF file.</p>
 <dl>
-<dt>Args: </dt><dd><p>setImageSize: list-1*2 matrix-size of the rectangle [width, height].</p>
+<dt>Args: </dt><dd><p>setImageSize: list-1*2 matrix-size of the image [width, height].</p>
 <p>scale: float-makes the figure output size = scale * default output size.
 Increasing the scale can make the resolution higher.</p>
 <p>output_fileName: str-filename: ‘’ (default: will not save the file), 
@@ -212,10 +212,12 @@ node; ‘ellipsis’ will show ‘….’ if the text is too long to show in the
 <dt id="SBMLDiagrams.load.getNetworkTopLeftCorner">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNetworkTopLeftCorner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNetworkTopLeftCorner" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the top left-hand corner of the network(s) from the SBML string.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>position: list-[position_x, position_y], top left-hand corner of the network(s).
-It is calculated by the minimum positions of compartments, nodes, centroid and handle 
-positions of reactions, excluding the compartment with the id of _compartment_default_.</p>
+<dl>
+<dt>Returns:   </dt><dd><p>position: a Point object with attributes x and y representing
+the x/y position of the top-left hand corner of the network(s).</p>
+</dd>
+<dt>Examples:</dt><dd><p>p = sd.getNetworkTopLeftConer()</p>
+<p>print(p.x, p.y)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -224,10 +226,12 @@ positions of reactions, excluding the compartment with the id of _compartment_de
 <dt id="SBMLDiagrams.load.getNetworkBottomRightCorner">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNetworkBottomRightCorner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNetworkBottomRightCorner" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the bottom right-hand corner of the network(s) from the SBML string.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>position: list-[position_x, position_y],bottom right-hand corner of the network(s).
-It is calculated by the maximum right down corner positions of compartments and nodes, 
-excluding the compartment with the id of _compartment_default_.</p>
+<dl>
+<dt>Returns:</dt><dd><p>position: a Point object with attributes x and y representing
+the x/y position of the bottom-right hand corner of the network(s).</p>
+</dd>
+<dt>Examples:</dt><dd><p>p = sd.getNetworkBottomRightConer()</p>
+<p>print(p.x, p.y)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -236,8 +240,12 @@ excluding the compartment with the id of _compartment_default_.</p>
 <dt id="SBMLDiagrams.load.getNetworkSize">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNetworkSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNetworkSize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the size of the network(s).</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>list-1*2 matrix-size of the rectangle [width, height].</p>
+<dl>
+<dt>Returns:</dt><dd><p>size: a Point object with attributes x and y representing
+the width and height of the network(s).</p>
+</dd>
+<dt>Examples: </dt><dd><p>p = sd.getNetworkSize()</p>
+<p>print (‘Width = ‘, p.x, ‘Height = ‘, p.y)</p>
 </dd>
 </dl>
 </dd></dl>
