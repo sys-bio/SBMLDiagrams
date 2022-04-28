@@ -221,7 +221,193 @@
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
-<li><p>Load the color style information from a JSON file..</p></li>
+<li><p>Interface to Tellurium example 1 with some basic functions, including different node shapes,
+dashed reaction lines, and etc.</p></li>
+</ol>
+<a class="reference internal image-reference" href="_images/Basic_functions.png"><img alt="_images/Basic_functions.png" src="_images/Basic_functions.png" style="width: 400px;" /></a>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">SBMLDiagrams</span> <span class="k">as</span> <span class="nn">sd</span>
+<span class="kn">import</span> <span class="nn">tellurium</span> <span class="k">as</span> <span class="nn">te</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">te</span><span class="o">.</span><span class="n">loada</span> <span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">J1: S1 -&gt; S2 + S3; k1*S1;</span>
+<span class="s1">J2: S3 -&gt; S4; k2*S3;</span>
+<span class="s1">J3: S4 -&gt; S5; k3*S4;</span>
+<span class="s1">S1 = 10; S2 = 0;</span>
+<span class="s1">S3 = 0; S4 = 0;</span>
+<span class="s1">k1 = 0.1; k2 = 0.2; k3 = 0.45</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">la</span> <span class="o">=</span> <span class="n">sd</span><span class="o">.</span><span class="n">load</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">getSBML</span><span class="p">())</span>
+
+<span class="n">la</span><span class="o">.</span><span class="n">setNodeAndTextPosition</span><span class="p">(</span><span class="s1">&#39;S1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">])</span>
+<span class="n">la</span><span class="o">.</span><span class="n">setNodeAndTextPosition</span><span class="p">(</span><span class="s1">&#39;S2&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">])</span>
+<span class="n">la</span><span class="o">.</span><span class="n">setNodeAndTextPosition</span><span class="p">(</span><span class="s1">&#39;S3&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">400</span><span class="p">,</span> <span class="mi">200</span><span class="p">])</span>
+<span class="n">la</span><span class="o">.</span><span class="n">setNodeAndTextPosition</span><span class="p">(</span><span class="s1">&#39;S4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">])</span>
+<span class="n">la</span><span class="o">.</span><span class="n">setNodeAndTextPosition</span><span class="p">(</span><span class="s1">&#39;S5&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">])</span>
+<span class="n">la</span><span class="o">.</span><span class="n">setNodeTextPosition</span><span class="p">(</span><span class="s1">&#39;S1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">180</span><span class="p">])</span>
+<span class="n">la</span><span class="o">.</span><span class="n">setNodeShape</span><span class="p">(</span><span class="s1">&#39;S1&#39;</span><span class="p">,</span> <span class="s1">&#39;ellipse&#39;</span><span class="p">)</span>
+<span class="n">la</span><span class="o">.</span><span class="n">setNodeSize</span><span class="p">(</span><span class="s1">&#39;S1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">la</span><span class="o">.</span><span class="n">setNodeShape</span><span class="p">(</span><span class="s1">&#39;S2&#39;</span><span class="p">,</span> <span class="s1">&#39;text_only&#39;</span><span class="p">)</span>
+<span class="n">la</span><span class="o">.</span><span class="n">setNodeTextFontSize</span><span class="p">(</span><span class="s1">&#39;S2&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">la</span><span class="o">.</span><span class="n">setReactionDefaultCenterAndHandlePositions</span><span class="p">(</span><span class="s1">&#39;J1&#39;</span><span class="p">)</span>
+<span class="n">la</span><span class="o">.</span><span class="n">setReactionDefaultCenterAndHandlePositions</span><span class="p">(</span><span class="s1">&#39;J2&#39;</span><span class="p">)</span>
+<span class="n">la</span><span class="o">.</span><span class="n">setReactionDefaultCenterAndHandlePositions</span><span class="p">(</span><span class="s1">&#39;J3&#39;</span><span class="p">)</span>
+<span class="n">la</span><span class="o">.</span><span class="n">setReactionDash</span><span class="p">(</span><span class="s2">&quot;J1&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">la</span><span class="o">.</span><span class="n">setReactionCenterPosition</span><span class="p">(</span><span class="s2">&quot;J3&quot;</span><span class="p">,[</span><span class="mi">550</span><span class="p">,</span><span class="mi">150</span><span class="p">])</span>
+<span class="n">la</span><span class="o">.</span><span class="n">setReactionHandlePositions</span><span class="p">(</span><span class="s2">&quot;J3&quot;</span><span class="p">,</span> <span class="p">[[</span><span class="mi">550</span><span class="p">,</span><span class="mi">150</span><span class="p">],[</span><span class="mi">530</span><span class="p">,</span><span class="mi">155</span><span class="p">],[</span><span class="mi">600</span><span class="p">,</span><span class="mi">120</span><span class="p">]])</span>
+
+<span class="n">la</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">showReversible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output_fileName</span> <span class="o">=</span> <span class="s1">&#39;output.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Interface to Tellurium example 2 with alian nodes. You can assign a feature repeatly with a function.</p></li>
+</ol>
+<a class="reference internal image-reference" href="_images/Basic_functions2.png"><img alt="_images/Basic_functions2.png" src="_images/Basic_functions2.png" style="width: 400px;" /></a>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">SBMLDiagrams</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">dirname</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;Jana_WolfGlycolysis.xml&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">filename</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+   <span class="n">sbmlStr</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">la</span> <span class="o">=</span> <span class="n">SBMLDiagrams</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">sbmlStr</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">createCircleNode</span> <span class="p">(</span><span class="n">la</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+   <span class="c1">#get center and size of the node</span>
+   <span class="n">center_list</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">getNodeCenter</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+
+   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">center_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+      <span class="c1"># Change the node size and corectly adjust for the new position</span>
+      <span class="n">center</span> <span class="o">=</span> <span class="n">center_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+      <span class="n">la</span><span class="o">.</span><span class="n">setNodeSize</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">18</span><span class="p">])</span>
+      <span class="n">la</span><span class="o">.</span><span class="n">setNodePosition</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="p">[</span><span class="n">center</span><span class="o">.</span><span class="n">x</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="n">center</span><span class="o">.</span><span class="n">y</span><span class="o">-</span><span class="mi">9</span><span class="p">])</span>
+
+      <span class="c1"># get the new position and size</span>
+      <span class="n">p</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">getNodePosition</span><span class="p">(</span><span class="nb">id</span><span class="p">)[</span><span class="n">alias</span><span class="p">]</span>
+      <span class="n">size</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">getNodeSize</span><span class="p">(</span><span class="nb">id</span><span class="p">)[</span><span class="n">alias</span><span class="p">]</span>
+
+      <span class="c1"># Position thetrext just outside the node</span>
+      <span class="n">q</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">size</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+
+      <span class="n">la</span><span class="o">.</span><span class="n">setNodeTextPosition</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+      <span class="n">la</span><span class="o">.</span><span class="n">setNodeShape</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;ellipse&#39;</span><span class="p">)</span>
+      <span class="n">la</span><span class="o">.</span><span class="n">setNodeBorderWidth</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="n">num_alias</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">center_list</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">alias</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_alias</span><span class="p">):</span>
+            <span class="c1"># Change the node size and corectly adjust for the new position</span>
+            <span class="n">center</span> <span class="o">=</span> <span class="n">center_list</span><span class="p">[</span><span class="n">alias</span><span class="p">]</span>
+            <span class="n">la</span><span class="o">.</span><span class="n">setNodeSize</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">18</span><span class="p">],</span> <span class="n">alias</span> <span class="o">=</span> <span class="n">alias</span><span class="p">)</span>
+            <span class="n">la</span><span class="o">.</span><span class="n">setNodePosition</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="p">[</span><span class="n">center</span><span class="o">.</span><span class="n">x</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="n">center</span><span class="o">.</span><span class="n">y</span><span class="o">-</span><span class="mi">9</span><span class="p">],</span> <span class="n">alias</span> <span class="o">=</span> <span class="n">alias</span><span class="p">)</span>
+
+            <span class="c1"># get the new position and size</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">getNodePosition</span><span class="p">(</span><span class="nb">id</span><span class="p">)[</span><span class="n">alias</span><span class="p">]</span>
+            <span class="n">size</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">getNodeSize</span><span class="p">(</span><span class="nb">id</span><span class="p">)[</span><span class="n">alias</span><span class="p">]</span>
+
+            <span class="c1"># Position thetrext just outside the node</span>
+            <span class="n">q</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">size</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+
+            <span class="n">la</span><span class="o">.</span><span class="n">setNodeTextPosition</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">alias</span> <span class="o">=</span> <span class="n">alias</span><span class="p">)</span>
+            <span class="n">la</span><span class="o">.</span><span class="n">setNodeShape</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;ellipse&#39;</span><span class="p">,</span> <span class="n">alias</span> <span class="o">=</span> <span class="n">alias</span><span class="p">)</span>
+            <span class="n">la</span><span class="o">.</span><span class="n">setNodeBorderWidth</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">alias</span> <span class="o">=</span> <span class="n">alias</span><span class="p">)</span>
+
+<span class="n">sp</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">getNodeIdList</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sp</span><span class="p">:</span>
+   <span class="n">createCircleNode</span><span class="p">(</span><span class="n">la</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+
+<span class="n">la</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output_fileName</span> <span class="o">=</span> <span class="s1">&#39;output.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Interface to SBGN example 1 with a complex species.</p></li>
+</ol>
+<a class="reference internal image-reference" href="_images/output-SBGN1.png"><img alt="_images/output-SBGN1.png" src="_images/output-SBGN1.png" style="width: 400px;" /></a>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">SBMLDiagrams</span>
+<span class="kn">import</span> <span class="nn">tellurium</span> <span class="k">as</span> <span class="nn">te</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">te</span><span class="o">.</span><span class="n">loada</span> <span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">J1: ATP + myosin -&gt; myosinATP; k1*ATP*myosin;</span>
+<span class="s1">ATP = 10; myosin = 10; myosinATP = 0</span>
+<span class="s1">k1 = 0.1;</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">sbmlStr</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getSBML</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">SBMLDiagrams</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">sbmlStr</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeAndTextPosition</span><span class="p">(</span><span class="s2">&quot;ATP&quot;</span><span class="p">,[</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeAndTextPosition</span><span class="p">(</span><span class="s2">&quot;myosin&quot;</span><span class="p">,[</span><span class="mi">50</span><span class="p">,</span><span class="mi">200</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeAndTextPosition</span><span class="p">(</span><span class="s2">&quot;myosinATP&quot;</span><span class="p">,[</span><span class="mi">300</span><span class="p">,</span><span class="mi">120</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeShape</span><span class="p">(</span><span class="s2">&quot;ATP&quot;</span><span class="p">,</span><span class="s2">&quot;ellipse&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeAndTextSize</span><span class="p">(</span><span class="s2">&quot;ATP&quot;</span><span class="p">,[</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeAndTextSize</span><span class="p">(</span><span class="s2">&quot;myosinATP&quot;</span><span class="p">,[</span><span class="mi">70</span><span class="p">,</span><span class="mi">100</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeArbitraryPolygonShape</span><span class="p">(</span><span class="s2">&quot;myosinATP&quot;</span><span class="p">,</span><span class="s2">&quot;myosinATP-polygon&quot;</span><span class="p">,</span> <span class="p">[[</span><span class="mf">12.5</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mf">87.5</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">100</span><span class="p">,</span><span class="mf">12.5</span><span class="p">],[</span><span class="mi">100</span><span class="p">,</span><span class="mf">87.5</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">87.5</span><span class="p">,</span><span class="mi">100</span><span class="p">],[</span><span class="mf">12.5</span><span class="p">,</span><span class="mi">100</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mf">87.5</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mf">12.5</span><span class="p">]])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setReactionDefaultCenterAndHandlePositions</span><span class="p">(</span><span class="s1">&#39;J1&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">addRectangle</span><span class="p">(</span><span class="s2">&quot;myosinATP_ATP&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">305</span><span class="p">,</span><span class="mi">130</span><span class="p">],</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span><span class="mi">40</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">addEllipse</span><span class="p">(</span><span class="s2">&quot;myosinATP_myosin&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">315</span><span class="p">,</span><span class="mi">175</span><span class="p">],</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">addText</span><span class="p">(</span><span class="s2">&quot;myosin&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">305</span><span class="p">,</span><span class="mi">130</span><span class="p">],</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span><span class="mi">40</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">addText</span><span class="p">(</span><span class="s2">&quot;ATP&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">315</span><span class="p">,</span><span class="mi">175</span><span class="p">],</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">])</span>
+<span class="c1">#print(df.getReactionCenterPosition(&quot;J1&quot;))</span>
+<span class="c1">#print(df.getReactionFillColor(&quot;J1&quot;))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">addEllipse</span><span class="p">(</span><span class="s2">&quot;left_small_circle&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">176.0</span><span class="p">,</span> <span class="mf">166.</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span>
+<span class="n">fill_color</span><span class="o">=</span><span class="p">[</span><span class="mi">91</span><span class="p">,</span> <span class="mi">176</span><span class="p">,</span> <span class="mi">253</span><span class="p">],</span> <span class="n">border_color</span> <span class="o">=</span> <span class="p">[</span><span class="mi">91</span><span class="p">,</span><span class="mi">176</span><span class="p">,</span><span class="mi">253</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">addEllipse</span><span class="p">(</span><span class="s2">&quot;right_small_circle&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">216.0</span><span class="p">,</span> <span class="mf">166.</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span>
+<span class="n">fill_color</span><span class="o">=</span><span class="p">[</span><span class="mi">91</span><span class="p">,</span> <span class="mi">176</span><span class="p">,</span> <span class="mi">253</span><span class="p">],</span> <span class="n">border_color</span> <span class="o">=</span> <span class="p">[</span><span class="mi">91</span><span class="p">,</span><span class="mi">176</span><span class="p">,</span><span class="mi">253</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">addEllipse</span><span class="p">(</span><span class="s2">&quot;middle_big_circle&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">191.0</span><span class="p">,</span> <span class="mf">160.</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">],</span>
+<span class="n">fill_color</span><span class="o">=</span><span class="p">[</span><span class="mi">91</span><span class="p">,</span> <span class="mi">176</span><span class="p">,</span> <span class="mi">253</span><span class="p">],</span> <span class="n">border_color</span> <span class="o">=</span> <span class="p">[</span><span class="mi">91</span><span class="p">,</span><span class="mi">176</span><span class="p">,</span><span class="mi">253</span><span class="p">])</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output_fileName</span> <span class="o">=</span> <span class="s1">&#39;output-SBGN1.png&#39;</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Interface to SBGN example 2 with a gradient node.</p></li>
+</ol>
+<a class="reference internal image-reference" href="_images/output-SBGN2.png"><img alt="_images/output-SBGN2.png" src="_images/output-SBGN2.png" style="width: 400px;" /></a>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">SBMLDiagrams</span>
+<span class="kn">import</span> <span class="nn">tellurium</span> <span class="k">as</span> <span class="nn">te</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">te</span><span class="o">.</span><span class="n">loada</span> <span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">J0: Ethanol + NAD -&gt; Ethanal + H + NADH; k1*Ethanol*NAD/ADH1;</span>
+<span class="s1">i1: ADH1 -| J0;</span>
+<span class="s1">Ethanol = 10; NAD = 6; H = 0; NADH = 0; ADH1 = 5;</span>
+<span class="s1">k1 = 0.1;</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">sbmlStr</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getSBML</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">SBMLDiagrams</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">sbmlStr</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeAndTextPosition</span><span class="p">(</span><span class="s2">&quot;ADH1&quot;</span><span class="p">,[</span><span class="mi">215</span><span class="p">,</span><span class="mi">110</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeAndTextPosition</span><span class="p">(</span><span class="s2">&quot;Ethanol&quot;</span><span class="p">,[</span><span class="mi">50</span><span class="p">,</span><span class="mi">200</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeAndTextPosition</span><span class="p">(</span><span class="s2">&quot;NAD&quot;</span><span class="p">,[</span><span class="mi">50</span><span class="p">,</span><span class="mi">300</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeAndTextPosition</span><span class="p">(</span><span class="s2">&quot;Ethanal&quot;</span><span class="p">,[</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeAndTextPosition</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,[</span><span class="mi">300</span><span class="p">,</span><span class="mi">300</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeAndTextPosition</span><span class="p">(</span><span class="s2">&quot;NADH&quot;</span><span class="p">,[</span><span class="mi">400</span><span class="p">,</span><span class="mi">250</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeShape</span><span class="p">(</span><span class="s2">&quot;Ethanol&quot;</span><span class="p">,</span><span class="s2">&quot;ellipse&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeShape</span><span class="p">(</span><span class="s2">&quot;NAD&quot;</span><span class="p">,</span><span class="s2">&quot;ellipse&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeShape</span><span class="p">(</span><span class="s2">&quot;Ethanal&quot;</span><span class="p">,</span><span class="s2">&quot;ellipse&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeShape</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="s2">&quot;ellipse&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeShape</span><span class="p">(</span><span class="s2">&quot;NADH&quot;</span><span class="p">,</span><span class="s2">&quot;ellipse&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeAndTextSize</span><span class="p">(</span><span class="s2">&quot;Ethanol&quot;</span><span class="p">,[</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeAndTextSize</span><span class="p">(</span><span class="s2">&quot;NAD&quot;</span><span class="p">,[</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeAndTextSize</span><span class="p">(</span><span class="s2">&quot;Ethanal&quot;</span><span class="p">,[</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeAndTextSize</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,[</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeAndTextSize</span><span class="p">(</span><span class="s2">&quot;NADH&quot;</span><span class="p">,[</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setReactionDefaultCenterAndHandlePositions</span><span class="p">(</span><span class="s1">&#39;J0&#39;</span><span class="p">)</span>
+<span class="c1">#print(df.getReactionCenterPosition(&quot;J0&quot;))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">addRectangle</span><span class="p">(</span><span class="s2">&quot;centroid_sqaure&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">235.0</span><span class="p">,</span> <span class="mf">265.0</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">],</span>
+<span class="n">fill_color</span><span class="o">=</span><span class="p">[</span><span class="mi">91</span><span class="p">,</span> <span class="mi">176</span><span class="p">,</span> <span class="mi">253</span><span class="p">],</span> <span class="n">border_color</span> <span class="o">=</span> <span class="p">[</span><span class="mi">91</span><span class="p">,</span><span class="mi">176</span><span class="p">,</span><span class="mi">253</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeFillLinearGradient</span><span class="p">(</span><span class="s2">&quot;ADH1&quot;</span><span class="p">,</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">50.</span><span class="p">],</span> <span class="p">[</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">]],</span>
+<span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">]],</span> <span class="p">[</span><span class="mf">100.0</span><span class="p">,</span> <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">255</span><span class="p">]]])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">setNodeBorderColor</span><span class="p">(</span><span class="s2">&quot;ADH1&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output_fileName</span> <span class="o">=</span> <span class="s1">&#39;output-SBGN2.png&#39;</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Interface to color style, i.e. loading the color style information from a JSON file.</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">SBMLDiagrams</span>
 <span class="kn">import</span> <span class="nn">tellurium</span> <span class="k">as</span> <span class="nn">te</span>
@@ -273,6 +459,96 @@
    <span class="p">}</span>
 <span class="p">]</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Interface to animation.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">SBMLDiagrams</span>
+<span class="kn">import</span> <span class="nn">tellurium</span> <span class="k">as</span> <span class="nn">te</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">te</span><span class="o">.</span><span class="n">loada</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">//Created by libAntimony v2.5</span>
+<span class="s1">model *Jana_WolfGlycolysis()</span>
+<span class="s1">// Compartments and Species:</span>
+<span class="s1">compartment compartment_;</span>
+<span class="s1">species Glucose in compartment_, fructose_1_6_bisphosphate in compartment_;</span>
+<span class="s1">species glyceraldehyde_3_phosphate in compartment_, glycerate_3_phosphate in compartment_;</span>
+<span class="s1">species pyruvate in compartment_, Acetyladehyde in compartment_, External_acetaldehyde in compartment_;</span>
+<span class="s1">species ATP in compartment_, ADP in compartment_, NAD in compartment_, NADH in compartment_;</span>
+<span class="s1">species $External_glucose in compartment_, $ethanol in compartment_, $Glycerol in compartment_;</span>
+<span class="s1">species $Sink in compartment_;</span>
+<span class="s1">// Reactions:</span>
+<span class="s1">J0: $External_glucose =&gt; Glucose; J0_inputFlux;</span>
+<span class="s1">J1: Glucose + 2ATP =&gt; fructose_1_6_bisphosphate + 2ADP; J1_k1*Glucose*ATP*(1/(1 + (ATP/J1_Ki)^J1_n));</span>
+<span class="s1">J2: fructose_1_6_bisphosphate =&gt; glyceraldehyde_3_phosphate + glyceraldehyde_3_phosphate; J2_J2_k*fructose_1_6_bisphosphate;</span>
+<span class="s1">J3: glyceraldehyde_3_phosphate + NADH =&gt; NAD + $Glycerol; J3_J3_k*glyceraldehyde_3_phosphate*NADH;</span>
+<span class="s1">J4: glyceraldehyde_3_phosphate + ADP + NAD =&gt; ATP + glycerate_3_phosphate + NADH; (J4_kg*J4_kp*glyceraldehyde_3_phosphate*NAD*ADP - J4_ka*J4_kk*glycerate_3_phosphate*ATP*NADH)/(J4_ka*NADH + J4_kp*ADP);</span>
+<span class="s1">J5: glycerate_3_phosphate + ADP =&gt; ATP + pyruvate; J5_J5_k*glycerate_3_phosphate*ADP;</span>
+<span class="s1">J6: pyruvate =&gt; Acetyladehyde; J6_J6_k*pyruvate;</span>
+<span class="s1">J7: Acetyladehyde + NADH =&gt; NAD + $ethanol; J7_J7_k*Acetyladehyde*NADH;</span>
+<span class="s1">J8: Acetyladehyde =&gt; External_acetaldehyde; J8_J8_k1*Acetyladehyde - J8_J8_k2*External_acetaldehyde;</span>
+<span class="s1">J9: ATP =&gt; ADP; J9_J9_k*ATP;</span>
+<span class="s1">J10: External_acetaldehyde =&gt; $Sink; J10_J10_k*External_acetaldehyde;</span>
+<span class="s1">// Species initializations:</span>
+<span class="s1">Glucose = 0;</span>
+<span class="s1">fructose_1_6_bisphosphate = 0;</span>
+<span class="s1">glyceraldehyde_3_phosphate = 0;</span>
+<span class="s1">glycerate_3_phosphate = 0;</span>
+<span class="s1">pyruvate = 0;</span>
+<span class="s1">Acetyladehyde = 0;</span>
+<span class="s1">External_acetaldehyde = 0;</span>
+<span class="s1">ATP = 3;</span>
+<span class="s1">ADP = 1;</span>
+<span class="s1">NAD = 0.5;</span>
+<span class="s1">NADH = 0.5;</span>
+<span class="s1">External_glucose = 0;</span>
+<span class="s1">ethanol = 0;</span>
+<span class="s1">Glycerol = 0;</span>
+<span class="s1">Sink = 0;</span>
+<span class="s1">// Compartment initializations:</span>
+<span class="s1">compartment_ = 1;</span>
+<span class="s1">// Variable initializations:</span>
+<span class="s1">J0_inputFlux = 50;</span>
+<span class="s1">J1_k1 = 550;</span>
+<span class="s1">J1_Ki = 1;</span>
+<span class="s1">J1_n = 4;</span>
+<span class="s1">J2_J2_k = 9.8;</span>
+<span class="s1">J3_J3_k = 85.7;</span>
+<span class="s1">J4_kg = 323.8;</span>
+<span class="s1">J4_kp = 76411.1;</span>
+<span class="s1">J4_ka = 57823.1;</span>
+<span class="s1">J4_kk = 23.7;</span>
+<span class="s1">J5_J5_k = 80;</span>
+<span class="s1">J6_J6_k = 9.7;</span>
+<span class="s1">J7_J7_k = 2000;</span>
+<span class="s1">J8_J8_k1 = 375;</span>
+<span class="s1">J8_J8_k2 = 375;</span>
+<span class="s1">J9_J9_k = 28;</span>
+<span class="s1">J10_J10_k = 80;</span>
+<span class="s1">J2_k = 9.8;</span>
+<span class="s1">J3_k = 85.7;</span>
+<span class="s1">J5_k = 80;</span>
+<span class="s1">J6_k = 9.7;</span>
+<span class="s1">J7_k = 2000;</span>
+<span class="s1">J8_k1 = 375;</span>
+<span class="s1">J8_k2 = 375;</span>
+<span class="s1">J9_k = 28;</span>
+<span class="s1">J10_k = 80;</span>
+<span class="s1">//Other declarations:</span>
+<span class="s1">const compartment_, J0_inputFlux, J1_k1, J1_Ki, J1_n, J2_J2_k, J3_J3_k;</span>
+<span class="s1">const J4_kg, J4_kp, J4_ka, J4_kk, J5_J5_k, J6_J6_k, J7_J7_k, J8_J8_k1, J8_J8_k2;</span>
+<span class="s1">const J9_J9_k, J10_J10_k, J2_k, J3_k, J5_k, J6_k, J7_k, J8_k1, J8_k2, J9_k;</span>
+<span class="s1">const J10_k;</span>
+<span class="s1">end</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;Jana_WolfGlycolysis.xml&quot;</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DIR</span><span class="p">,</span> <span class="n">filename</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">sbmlStr</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">SBMLDiagrams</span><span class="o">.</span><span class="n">animate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">sbmlStr</span><span class="o">=</span><span class="n">sbmlStr</span><span class="p">,</span> <span class="n">outputName</span><span class="o">=</span><span class="s2">&quot;output&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

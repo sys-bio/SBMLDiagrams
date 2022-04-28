@@ -28,28 +28,28 @@ To install SBMLDiagrams use
 Figure Examples
 ---------------
 
-1) An example without compartment. There are different shapes of nodes with different fill colors. 
+1) An example with only nodes (no reactions in the network). There are five types of node shapes
+with different fill colors and border colors.
+
+.. image:: Figures/Introduction/node_grid.png
+  :width: 400
+
+2) An example without compartment. There are different shapes of nodes with different fill colors. 
 Texts can be placed outside the nodes with designed positions. There are also reactions with different 
 fill colors. x_1 is an example of alias node.
 
-.. image:: Figures/test_no_comp.png
+.. image:: Figures/Introduction/test_no_comp.png
   :width: 400
 
-2) An example with compartments. The compartments are filled with different colors. There are 
+3) An example with compartments. The compartments are filled with different colors. There are 
 different shapes of nodes with different border colors. x_1 and x_5 are examples of alias nodes.
 
-.. image:: Figures/test_comp.png
-  :width: 400
-
-3) An example with only nodes (no reactions in the network). There are five types of node shapes
-with different fill colors and border colors.
-
-.. image:: Figures/node_grid.png
+.. image:: Figures/Introduction/test_comp.png
   :width: 400
 
 4) An example with long text contents. 
-   Its animation is also available at https://youtu.be/3pFvLbtRBnQ.
+   Its animation is also available at https://youtu.be/zF3_fkDp2Xk.
 
-.. image:: Figures/Jana_WolfGlycolysis.png
+.. image:: Figures/Introduction/Jana_WolfGlycolysis.png
   :width: 400
 
