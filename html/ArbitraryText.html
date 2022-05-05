@@ -180,16 +180,16 @@
 
 <dl class="py function">
 <dt id="SBMLDiagrams.processSBML.load.getNodeTextPosition">
-<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">getNodeTextPosition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.getNodeTextPosition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">getNodeTextPosition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.getNodeTextPosition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the text position of a node with its certain node id.</p>
 <dl>
 <dt>Args: </dt><dd><p>id: str-the id of node.</p>
+<p>alias: int-alias node index [0, num_alias).</p>
 </dd>
-<dt>Returns:</dt><dd><p>txt_position_list: list of txt_position.</p>
-<p>txt_position: a Point object with attributes x and y representing
+<dt>Returns:</dt><dd><p>txt_position: a Point object with attributes x and y representing
 the x/y position of the top-left hand corner of the node text.</p>
 </dd>
-<dt>Examples: </dt><dd><p>p = sd.getNodeTextPosition(‘ATP’)[0]</p>
+<dt>Examples: </dt><dd><p>p = sd.getNodeTextPosition(‘ATP’)</p>
 <p>print (‘x = ‘, p.x, ‘y = ‘, p.y)</p>
 </dd>
 </dl>
@@ -206,7 +206,7 @@ the x/y position of the top-left hand corner of the node text.</p>
 <p>txt_size: a Point object with attributes x and y representing
 the width and height of the text.</p>
 </dd>
-<dt>Examples: </dt><dd><p>p = sd.getTextSize(‘text_content’)[0]</p>
+<dt>Examples: </dt><dd><p>p = sd.getTextSize(‘text_content’)</p>
 <p>print (‘Width = ‘, p.x, ‘Height = ‘, p.y)</p>
 </dd>
 </dl>
@@ -214,13 +214,13 @@ the width and height of the text.</p>
 
 <dl class="py function">
 <dt id="SBMLDiagrams.processSBML.load.getNodeTextFontColor">
-<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">getNodeTextFontColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.getNodeTextFontColor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">getNodeTextFontColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.getNodeTextFontColor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the text font color of a node with its certain node id.</p>
 <dl>
 <dt>Args: </dt><dd><p>id: str-the id of the node.</p>
+<p>alias: int-alias node index [0, num_alias).</p>
 </dd>
-<dt>Returns:</dt><dd><p>txt_font_color_list: list of txt_font_color.</p>
-<p>txt_font_color: list-[rgba 1*4 matrix, html_name str (if any, otherwise ‘’), 
+<dt>Returns:</dt><dd><p>txt_font_color: list-[rgba 1*4 matrix, html_name str (if any, otherwise ‘’), 
 hex str (8 digits)].</p>
 </dd>
 </dl>
@@ -228,13 +228,13 @@ hex str (8 digits)].</p>
 
 <dl class="py function">
 <dt id="SBMLDiagrams.processSBML.load.getNodeTextLineWidth">
-<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">getNodeTextLineWidth</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.getNodeTextLineWidth" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">getNodeTextLineWidth</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.getNodeTextLineWidth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the text line width of a node with its certain node id.</p>
 <dl>
 <dt>Args: </dt><dd><p>id: int-the id of the node.</p>
+<p>alias: int-alias node index [0, num_alias).</p>
 </dd>
-<dt>Returns:</dt><dd><p>txt_line_width_list: list of txt_line_width.</p>
-<p>txt_line_width: float-node text line width.</p>
+<dt>Returns:</dt><dd><p>txt_line_width: float-node text line width.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -243,11 +243,10 @@ hex str (8 digits)].</p>
 <dt id="SBMLDiagrams.processSBML.load.getTextFontSize">
 <code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">getTextFontSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.getTextFontSize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the arbitrary text font size with the text content.</p>
-<dl>
+<dl class="simple">
 <dt>Args: </dt><dd><p>txt_str: str-the text content.</p>
 </dd>
-<dt>Returns:</dt><dd><p>txt_font_size_list: list of txt_font_size.</p>
-<p>txt_font_size: float-text font size.</p>
+<dt>Returns:</dt><dd><p>txt_font_size: float-text font size.</p>
 </dd>
 </dl>
 </dd></dl>

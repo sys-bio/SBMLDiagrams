@@ -58,6 +58,8 @@ Edit the node information.
 
 .. autofunction:: SBMLDiagrams.load.setNodeTextPosition
 
+.. autofunction:: SBMLDiagrams.load.moveNodeTextPosition
+
 .. autofunction:: SBMLDiagrams.load.setNodeTextPositionCenter
 
 .. autofunction:: SBMLDiagrams.load.setNodeTextPositionLeftCenter

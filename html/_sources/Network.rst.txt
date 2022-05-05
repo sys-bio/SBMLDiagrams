@@ -6,6 +6,8 @@ Network
  
 .. autofunction:: SBMLDiagrams.load
 
+.. autofunction:: SBMLDiagrams.load.hasLayout
+
 .. autofunction:: SBMLDiagrams.load.autolayout
 
 .. autofunction:: SBMLDiagrams.load.draw

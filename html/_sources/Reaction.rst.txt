@@ -11,7 +11,7 @@ Read the reaction information.
 
 .. autofunction:: SBMLDiagrams.load.getReactionCenterPosition
 
-.. autofunction:: SBMLDiagrams.load.getReactionHandlePositions
+.. autofunction:: SBMLDiagrams.load.getReactionBezierHandles
 
 .. autofunction:: SBMLDiagrams.load.getReactionFillColor
 
@@ -25,9 +25,11 @@ Read the reaction information.
 Edit the reaction information.
 --------------------------------
 
+.. autofunction:: SBMLDiagrams.load.setReactionStraightLine
+
 .. autofunction:: SBMLDiagrams.load.setReactionCenterPosition
 
-.. autofunction:: SBMLDiagrams.load.setReactionHandlePositions
+.. autofunction:: SBMLDiagrams.load.setReactionBezierHandles
 
 .. autofunction:: SBMLDiagrams.load.setReactionDefaultCenterAndHandlePositions
 

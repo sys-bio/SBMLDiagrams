@@ -254,7 +254,7 @@ dashed reaction lines, and etc.</p></li>
 <span class="n">la</span><span class="o">.</span><span class="n">setReactionDefaultCenterAndHandlePositions</span><span class="p">(</span><span class="s1">&#39;J3&#39;</span><span class="p">)</span>
 <span class="n">la</span><span class="o">.</span><span class="n">setReactionDash</span><span class="p">(</span><span class="s2">&quot;J1&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
 <span class="n">la</span><span class="o">.</span><span class="n">setReactionCenterPosition</span><span class="p">(</span><span class="s2">&quot;J3&quot;</span><span class="p">,[</span><span class="mi">550</span><span class="p">,</span><span class="mi">150</span><span class="p">])</span>
-<span class="n">la</span><span class="o">.</span><span class="n">setReactionHandlePositions</span><span class="p">(</span><span class="s2">&quot;J3&quot;</span><span class="p">,</span> <span class="p">[[</span><span class="mi">550</span><span class="p">,</span><span class="mi">150</span><span class="p">],[</span><span class="mi">530</span><span class="p">,</span><span class="mi">155</span><span class="p">],[</span><span class="mi">600</span><span class="p">,</span><span class="mi">120</span><span class="p">]])</span>
+<span class="n">la</span><span class="o">.</span><span class="n">setReactionBezierHandles</span><span class="p">(</span><span class="s2">&quot;J3&quot;</span><span class="p">,</span> <span class="p">[[</span><span class="mi">550</span><span class="p">,</span><span class="mi">150</span><span class="p">],[</span><span class="mi">530</span><span class="p">,</span><span class="mi">155</span><span class="p">],[</span><span class="mi">600</span><span class="p">,</span><span class="mi">120</span><span class="p">]])</span>
 
 <span class="n">la</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">showReversible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output_fileName</span> <span class="o">=</span> <span class="s1">&#39;output.png&#39;</span><span class="p">)</span>
 </pre></div>
@@ -273,39 +273,39 @@ dashed reaction lines, and etc.</p></li>
 
 <span class="n">la</span> <span class="o">=</span> <span class="n">SBMLDiagrams</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">sbmlStr</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">createCircleNode</span> <span class="p">(</span><span class="n">la</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">createCircleNode</span> <span class="p">(</span><span class="n">la</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
    <span class="c1">#get center and size of the node</span>
-   <span class="n">center_list</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">getNodeCenter</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
 
-   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">center_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+   <span class="n">num_alias</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">getNodeAliasNum</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+
+   <span class="k">if</span> <span class="n">num_alias</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
       <span class="c1"># Change the node size and corectly adjust for the new position</span>
-      <span class="n">center</span> <span class="o">=</span> <span class="n">center_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+      <span class="n">center</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">getNodeCenter</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
       <span class="n">la</span><span class="o">.</span><span class="n">setNodeSize</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">18</span><span class="p">])</span>
       <span class="n">la</span><span class="o">.</span><span class="n">setNodePosition</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="p">[</span><span class="n">center</span><span class="o">.</span><span class="n">x</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="n">center</span><span class="o">.</span><span class="n">y</span><span class="o">-</span><span class="mi">9</span><span class="p">])</span>
 
       <span class="c1"># get the new position and size</span>
-      <span class="n">p</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">getNodePosition</span><span class="p">(</span><span class="nb">id</span><span class="p">)[</span><span class="n">alias</span><span class="p">]</span>
-      <span class="n">size</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">getNodeSize</span><span class="p">(</span><span class="nb">id</span><span class="p">)[</span><span class="n">alias</span><span class="p">]</span>
+      <span class="n">p</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">getNodePosition</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+      <span class="n">size</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">getNodeSize</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
 
-      <span class="c1"># Position thetrext just outside the node</span>
+      <span class="c1"># Position the text just outside the node</span>
       <span class="n">q</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">size</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
 
       <span class="n">la</span><span class="o">.</span><span class="n">setNodeTextPosition</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
       <span class="n">la</span><span class="o">.</span><span class="n">setNodeShape</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;ellipse&#39;</span><span class="p">)</span>
       <span class="n">la</span><span class="o">.</span><span class="n">setNodeBorderWidth</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
    <span class="k">else</span><span class="p">:</span>
-      <span class="n">num_alias</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">center_list</span><span class="p">)</span>
       <span class="k">for</span> <span class="n">alias</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_alias</span><span class="p">):</span>
             <span class="c1"># Change the node size and corectly adjust for the new position</span>
-            <span class="n">center</span> <span class="o">=</span> <span class="n">center_list</span><span class="p">[</span><span class="n">alias</span><span class="p">]</span>
+            <span class="n">center</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">getNodeCenter</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">alias</span> <span class="o">=</span> <span class="n">alias</span><span class="p">)</span>
             <span class="n">la</span><span class="o">.</span><span class="n">setNodeSize</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">18</span><span class="p">],</span> <span class="n">alias</span> <span class="o">=</span> <span class="n">alias</span><span class="p">)</span>
             <span class="n">la</span><span class="o">.</span><span class="n">setNodePosition</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="p">[</span><span class="n">center</span><span class="o">.</span><span class="n">x</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="n">center</span><span class="o">.</span><span class="n">y</span><span class="o">-</span><span class="mi">9</span><span class="p">],</span> <span class="n">alias</span> <span class="o">=</span> <span class="n">alias</span><span class="p">)</span>
 
             <span class="c1"># get the new position and size</span>
-            <span class="n">p</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">getNodePosition</span><span class="p">(</span><span class="nb">id</span><span class="p">)[</span><span class="n">alias</span><span class="p">]</span>
-            <span class="n">size</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">getNodeSize</span><span class="p">(</span><span class="nb">id</span><span class="p">)[</span><span class="n">alias</span><span class="p">]</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">getNodePosition</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">alias</span> <span class="o">=</span> <span class="n">alias</span><span class="p">)</span>
+            <span class="n">size</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">getNodeSize</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">alias</span> <span class="o">=</span> <span class="n">alias</span><span class="p">)</span>
 
-            <span class="c1"># Position thetrext just outside the node</span>
+            <span class="c1"># Position the text just outside the node</span>
             <span class="n">q</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">size</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
 
             <span class="n">la</span><span class="o">.</span><span class="n">setNodeTextPosition</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">alias</span> <span class="o">=</span> <span class="n">alias</span><span class="p">)</span>

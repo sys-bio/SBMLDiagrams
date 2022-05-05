@@ -7,11 +7,11 @@ Introduction
 SBMLDiagrams is a Python package to visualize networks embedded in SBML Level 3 models. If the SBML 
 layout and render extension are used, the package will use this data to display the network. 
 SBMLDiagrams can export PNG, JPG, PDF files. SBMLDiagrams can be used to add SBML layout and render 
-to an existing valid SBML model which can be subsequently be exported.
+to an existing valid SBML model which can subsequently be exported.
 
-We also have an interface of SBMLDiagrams to NetworkX to exploit the variety of layout algorithms as well 
-as SBbadger which is a tool for generating realistic but random biochemical networks. If you are
-using any of the code, please cite the PYPI web page (https://pypi.org/project/SBMLDiagrams/). Thanks. 
+We also have an interface of SBMLDiagrams to NetworkX to exploit the variety of layout algorithms. If 
+you are using any of the code, please cite the arXiv (http://arxiv.org/abs/2204.12611) and the PYPI 
+web page (https://pypi.org/project/SBMLDiagrams/).
 
 ------------
 Installation 

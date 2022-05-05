@@ -184,25 +184,23 @@
 <dl>
 <dt>Args: </dt><dd><p>id: str-the id of the reaction.</p>
 </dd>
-<dt>Returns:</dt><dd><p>line_center_position_list: list of center_position.</p>
-<p>center_position: a Point object with attributes x and y representing
+<dt>Returns:</dt><dd><p>center_position: a Point object with attributes x and y representing
 the x/y position.</p>
 </dd>
-<dt>Examples: </dt><dd><p>p = sd.getReactionCenterPosition(‘reaction_id’)[0]</p>
+<dt>Examples: </dt><dd><p>p = sd.getReactionCenterPosition(‘reaction_id’)</p>
 <p>print (‘x = ‘, p.x, ‘y = ‘, p.y)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="SBMLDiagrams.load.getReactionHandlePositions">
-<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getReactionHandlePositions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getReactionHandlePositions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the handle positions of a reaction with its certain reaction id.</p>
+<dt id="SBMLDiagrams.load.getReactionBezierHandles">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getReactionBezierHandles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getReactionBezierHandles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the bezier handle positions of a reaction with its certain reaction id.</p>
 <dl>
 <dt>Args: </dt><dd><p>id: str-the id of the reaction.</p>
 </dd>
-<dt>Returns:</dt><dd><p>line_handle_positions_list: list of handle_positions.</p>
-<p>handle_positions: list-position of the handles: 
+<dt>Returns:</dt><dd><p>handle_positions: list-position of the handles: 
 [center handle, reactant handles, product handles].</p>
 <p>position: a Point object with attributes x and y representing the x/y position.</p>
 </dd>
@@ -213,11 +211,10 @@ the x/y position.</p>
 <dt id="SBMLDiagrams.load.getReactionFillColor">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getReactionFillColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getReactionFillColor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the fill color of a reaction with its certain reaction id.</p>
-<dl>
+<dl class="simple">
 <dt>Args: </dt><dd><p>id: str-the id of the reaction.</p>
 </dd>
-<dt>Returns:</dt><dd><p>fill_color_list: list of fill_color.</p>
-<p>fill_color: list-[rgba 1*4 matrix, html_name str (if any, otherwise ‘’), 
+<dt>Returns:</dt><dd><p>fill_color: list-[rgba 1*4 matrix, html_name str (if any, otherwise ‘’), 
 hex str (8 digits)].</p>
 </dd>
 </dl>
@@ -227,11 +224,10 @@ hex str (8 digits)].</p>
 <dt id="SBMLDiagrams.load.getReactionLineThickness">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getReactionLineThickness</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getReactionLineThickness" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the line thickness of a reaction with its certain reaction id.</p>
-<dl>
+<dl class="simple">
 <dt>Args: </dt><dd><p>id: str-the id of the reaction.</p>
 </dd>
-<dt>Returns:</dt><dd><p>line_thickness_list: list of line_thickness.</p>
-<p>line_thickness: float-reaction border line width.</p>
+<dt>Returns:</dt><dd><p>line_thickness: float-reaction border line width.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -242,11 +238,10 @@ hex str (8 digits)].</p>
 <dd><p>Get the arrow head size of reactions with its certain reaction id.</p>
 <p>Args:</p>
 <dl>
-<dt>Returns:</dt><dd><p>arrow_head_size_list: list of arrow_head_size.</p>
-<p>arrow_head_size: a Point object with attributes x and y representing
+<dt>Returns:</dt><dd><p>arrow_head_size: a Point object with attributes x and y representing
 the width and height of the arrow head.</p>
 </dd>
-<dt>Examples: </dt><dd><p>p = sd.getReactionArrowHeadSize(‘reaction_id’)[0]</p>
+<dt>Examples: </dt><dd><p>p = sd.getReactionArrowHeadSize(‘reaction_id’)</p>
 <p>print (‘Width = ‘, p.x, ‘Height = ‘, p.y)</p>
 </dd>
 </dl>
@@ -256,11 +251,10 @@ the width and height of the arrow head.</p>
 <dt id="SBMLDiagrams.load.getReactionDash">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getReactionDash</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getReactionDash" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the dash information with its certain reaction id.</p>
-<dl>
+<dl class="simple">
 <dt>Args: </dt><dd><p>id: str-the id of the reaction.</p>
 </dd>
-<dt>Returns:</dt><dd><p>dash_list: list of dash.</p>
-<p>dash: list - [] means solid; 
+<dt>Returns:</dt><dd><p>dash: list - [] means solid; 
 [a,b] means drawing a a-point line and following a b-point gap and etc;
 [a,b,c,d] means drawing a a-point line and following a b-point gap, and then
 drawing a c-point line followed by a d-point gap.</p>
@@ -271,6 +265,18 @@ drawing a c-point line followed by a d-point gap.</p>
 </div>
 <div class="section" id="edit-the-reaction-information">
 <h2>Edit the reaction information.<a class="headerlink" href="#edit-the-reaction-information" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="SBMLDiagrams.load.setReactionStraightLine">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setReactionStraightLine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setReactionStraightLine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a certain reaction (with its id) to straight line, which directly connects the center
+position with the nodes (species). The default reaction line type is bezier curves without
+using this function.</p>
+<dl class="simple">
+<dt>Args:  </dt><dd><p>id: str-reaction id.</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setReactionCenterPosition">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setReactionCenterPosition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">position</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setReactionCenterPosition" title="Permalink to this definition">¶</a></dt>
@@ -287,9 +293,9 @@ a Point object with attributes x and y representing the x/y position.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="SBMLDiagrams.load.setReactionHandlePositions">
-<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setReactionHandlePositions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">position</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setReactionHandlePositions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the reaction handle positions.</p>
+<dt id="SBMLDiagrams.load.setReactionBezierHandles">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setReactionBezierHandles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">position</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setReactionBezierHandles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the reaction bezier handle positions.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-reaction id.</p>
 <p>position: list-position of the handles: [center handle, reactant handle1, …, product handle1, …].</p>
@@ -306,7 +312,8 @@ a Point object with attributes x and y representing the x/y position.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setReactionDefaultCenterAndHandlePositions">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setReactionDefaultCenterAndHandlePositions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setReactionDefaultCenterAndHandlePositions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set detault center and handle positions, which makes the reaction lines look like straight lines.</p>
+<dd><p>Set detault center and handle positions. The default center is the centroid of the reaction,
+and the default handle positions are middle points of nodes (species) and the centroid.</p>
 <dl class="simple">
 <dt>Args:  </dt><dd><p>id: str-reaction id.</p>
 </dd>

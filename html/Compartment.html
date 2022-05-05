@@ -185,11 +185,10 @@
 <dl>
 <dt>Args: </dt><dd><p>id: str-the id of the compartment.</p>
 </dd>
-<dt>Returns:</dt><dd><p>position_list: list of position.</p>
-<p>position: a Point object with attributes x and y representing
+<dt>Returns:</dt><dd><p>position: a Point object with attributes x and y representing
 the x/y position of the top-left hand corner of the compartment.</p>
 </dd>
-<dt>Examples: </dt><dd><p>p = sd.getCompartmentPosition(‘compartment_id’)[0]</p>
+<dt>Examples: </dt><dd><p>p = sd.getCompartmentPosition(‘compartment_id’)</p>
 <p>print (‘x = ‘, p.x, ‘y = ‘, p.y)</p>
 </dd>
 </dl>
@@ -202,11 +201,10 @@ the x/y position of the top-left hand corner of the compartment.</p>
 <dl>
 <dt>Args: </dt><dd><p>id: str-the id of the compartment.</p>
 </dd>
-<dt>Returns:</dt><dd><p>size_list: list of size.</p>
-<p>size: a Point object with attributes x and y representing
+<dt>Returns:</dt><dd><p>size: a Point object with attributes x and y representing
 the width and height of the compartment.</p>
 </dd>
-<dt>Examples: </dt><dd><p>p = sd.getCompartmentSize(‘compartment_id’)[0]</p>
+<dt>Examples: </dt><dd><p>p = sd.getCompartmentSize(‘compartment_id’)</p>
 <p>print (‘Width = ‘, p.x, ‘Height = ‘, p.y)</p>
 </dd>
 </dl>
@@ -216,11 +214,10 @@ the width and height of the compartment.</p>
 <dt id="SBMLDiagrams.load.getCompartmentFillColor">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getCompartmentFillColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getCompartmentFillColor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the fill color of a compartment with its certain compartment id.</p>
-<dl>
+<dl class="simple">
 <dt>Args: </dt><dd><p>id: str-the id of the compartment.</p>
 </dd>
-<dt>Returns:</dt><dd><p>fill_color_list: list of fill_color.</p>
-<p>fill_color: list-[rgba 1*4 matrix, html_name str (if any, otherwise ‘’), 
+<dt>Returns:</dt><dd><p>fill_color: list-[rgba 1*4 matrix, html_name str (if any, otherwise ‘’), 
 hex str (8 digits)].</p>
 </dd>
 </dl>
@@ -230,11 +227,10 @@ hex str (8 digits)].</p>
 <dt id="SBMLDiagrams.load.getCompartmentBorderColor">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getCompartmentBorderColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getCompartmentBorderColor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the border color of a compartment with its certain id.</p>
-<dl>
+<dl class="simple">
 <dt>Args: </dt><dd><p>id: str-the id of the compartment.</p>
 </dd>
-<dt>Returns:</dt><dd><p>border_color_list: list of border_color.</p>
-<p>border_color: list-[rgba 1*4 matrix, html_name str (if any, otherwise ‘’), 
+<dt>Returns:</dt><dd><p>border_color: list-[rgba 1*4 matrix, html_name str (if any, otherwise ‘’), 
 hex str (8 digits)].</p>
 </dd>
 </dl>
@@ -244,11 +240,10 @@ hex str (8 digits)].</p>
 <dt id="SBMLDiagrams.load.getCompartmentBorderWidth">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getCompartmentBorderWidth</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getCompartmentBorderWidth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the border width of a compartment with its certain compartment id.</p>
-<dl>
+<dl class="simple">
 <dt>Args: </dt><dd><p>id: str-the id of the compartment.</p>
 </dd>
-<dt>Returns:</dt><dd><p>border_width_list: list of border_width.</p>
-<p>border_width: float-compartment border line width.</p>
+<dt>Returns:</dt><dd><p>border_width: float-compartment border line width.</p>
 </dd>
 </dl>
 </dd></dl>
