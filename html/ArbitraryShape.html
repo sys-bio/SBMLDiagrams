@@ -169,7 +169,7 @@
 <dl class="py function">
 <dt id="SBMLDiagrams.processSBML.load.getShapeNameList">
 <code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">getShapeNameList</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.getShapeNameList" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the list of arbitrary shape names.</p>
+<dd><p>Returns a list of possible shape names.</p>
 <dl>
 <dt>Returns:</dt><dd><p>shape_name_list-list of shape_name.</p>
 <p>shape_name-str-arbitrary shape name.</p>
@@ -218,14 +218,14 @@ the width and height of the shape.</p>
 <dd><p>Add a rectangle onto canvas.</p>
 <dl>
 <dt>Args:  </dt><dd><p>shape_name: str-the name of the rectangle.</p>
-<p>position: list/point.Point()-</p>
+<p>position: list or point.Point()</p>
 <p>list-
 [position_x, position_y], the coordinate represents the top-left hand corner of 
 the rectangle.</p>
 <p>point.Point()-
 a Point object with attributes x and y representing
 the x/y position of the top-left hand corner of the rectangle.</p>
-<p>size: list/point.Point()-</p>
+<p>size: list or point.Point()</p>
 <p>list-
 1*2 matrix-size of the rectangle [width, height].</p>
 <p>point.Point()-
@@ -246,14 +246,14 @@ the rectangle.</p>
 <dd><p>Add an ellipse onto canvas.</p>
 <dl>
 <dt>Args:  </dt><dd><p>shape_name: str-the name of the ellipse.</p>
-<p>position: list/point.Point()-</p>
+<p>position: list or point.Point()</p>
 <p>list-
 [position_x, position_y], the coordinate represents the top-left hand corner of 
 the ellipse.</p>
 <p>point.Point()-
 a Point object with attributes x and y representing
 the x/y position of the top-left hand corner of the ellipse.</p>
-<p>size: list/point.Point()-</p>
+<p>size: list or point.Point()</p>
 <p>list-
 1*2 matrix-size of the ellipse [width, height].</p>
 <p>point.Point()-
@@ -276,14 +276,14 @@ the ellipse.</p>
 <dt>Args:  </dt><dd><p>shape_name: str-the name of the polygon.</p>
 <p>shape_info: list-[[x1,y1],[x2,y2],[x3,y3],etc], where x,y are floating numbers from 0 to 100.
 x represents the percentage of width, and y represents the percentage of height.</p>
-<p>position: list/point.Point()-</p>
+<p>position: list or point.Point()</p>
 <p>list-
 [position_x, position_y], the coordinate represents the top-left hand corner of 
 the Polygon.</p>
 <p>point.Point()-
 a Point object with attributes x and y representing
 the x/y position of the top-left hand corner of the polygon.</p>
-<p>size: list/point.Point()-</p>
+<p>size: list or point.Point()</p>
 <p>list-
 1*2 matrix-size of the polygon [width, height].</p>
 <p>point.Point()-

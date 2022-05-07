@@ -8,7 +8,9 @@ ArbitraryText
 Read the information of arbitrary text.
 -----------------------------------------
  
-.. autofunction:: SBMLDiagrams.processSBML.load.getTextContentList
+.. autofunction:: SBMLDiagrams.processSBML.load.getTextIdList
+
+.. autofunction:: SBMLDiagrams.processSBML.load.getTextContent
 
 .. autofunction:: SBMLDiagrams.processSBML.load.getNodeTextPosition
 
@@ -23,6 +25,8 @@ Read the information of arbitrary text.
 -----------------------------------------
 Edit the information of arbitrary text.
 -----------------------------------------
+
+.. autofunction:: SBMLDiagrams.processSBML.load.setTextContent
 
 .. autofunction:: SBMLDiagrams.processSBML.load.setTextPosition
 

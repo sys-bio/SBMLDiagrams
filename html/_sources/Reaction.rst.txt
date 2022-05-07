@@ -19,13 +19,13 @@ Read the reaction information.
 
 .. autofunction:: SBMLDiagrams.load.getReactionArrowHeadSize
 
-.. autofunction:: SBMLDiagrams.load.getReactionDash
+.. autofunction:: SBMLDiagrams.load.getReactionDashStyle
 
 --------------------------------
 Edit the reaction information.
 --------------------------------
 
-.. autofunction:: SBMLDiagrams.load.setReactionStraightLine
+.. autofunction:: SBMLDiagrams.load.setReactionToStraightLine
 
 .. autofunction:: SBMLDiagrams.load.setReactionCenterPosition
 
@@ -39,7 +39,7 @@ Edit the reaction information.
 
 .. autofunction:: SBMLDiagrams.load.setReactionArrowHeadSize
 
-.. autofunction:: SBMLDiagrams.load.setReactionDash
+.. autofunction:: SBMLDiagrams.load.setReactionDashStyle
 
 
 

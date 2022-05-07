@@ -168,12 +168,24 @@
 <div class="section" id="read-the-information-of-arbitrary-text">
 <h2>Read the information of arbitrary text.<a class="headerlink" href="#read-the-information-of-arbitrary-text" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="SBMLDiagrams.processSBML.load.getTextContentList">
-<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">getTextContentList</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.getTextContentList" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the list of arbitrary text content.</p>
+<dt id="SBMLDiagrams.processSBML.load.getTextIdList">
+<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">getTextIdList</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.getTextIdList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of text id.</p>
 <dl>
-<dt>Returns:</dt><dd><p>txt_content_list-list of txt_content.</p>
-<p>txt_content-str-arbitrary text content.</p>
+<dt>Returns:</dt><dd><p>txt_id_list-list of txt_id.</p>
+<p>txt_id-str-arbitrary text id.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.processSBML.load.getTextContent">
+<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">getTextContent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.getTextContent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the arbitrary text content with the text id.</p>
+<dl class="simple">
+<dt>Args: </dt><dd><p>txt_id: str-the text id.</p>
+</dd>
+<dt>Returns:</dt><dd><p>txt_content: str-text content.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -181,10 +193,10 @@
 <dl class="py function">
 <dt id="SBMLDiagrams.processSBML.load.getNodeTextPosition">
 <code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">getNodeTextPosition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.getNodeTextPosition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the text position of a node with its certain node id.</p>
+<dd><p>Get the text position of a node with a given node id.</p>
 <dl>
 <dt>Args: </dt><dd><p>id: str-the id of node.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 <dt>Returns:</dt><dd><p>txt_position: a Point object with attributes x and y representing
 the x/y position of the top-left hand corner of the node text.</p>
@@ -197,16 +209,15 @@ the x/y position of the top-left hand corner of the node text.</p>
 
 <dl class="py function">
 <dt id="SBMLDiagrams.processSBML.load.getTextSize">
-<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">getTextSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.getTextSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the arbitrary text size with its text content.</p>
+<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">getTextSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.getTextSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the arbitrary text size with its text id.</p>
 <dl>
-<dt>Args: </dt><dd><p>txt_str: str-the text content.</p>
+<dt>Args: </dt><dd><p>txt_id: str-the text id.</p>
 </dd>
-<dt>Returns:</dt><dd><p>txt_size_list: list of txt_size.</p>
-<p>txt_size: a Point object with attributes x and y representing
+<dt>Returns:</dt><dd><p>txt_size: a Point object with attributes x and y representing
 the width and height of the text.</p>
 </dd>
-<dt>Examples: </dt><dd><p>p = sd.getTextSize(‘text_content’)</p>
+<dt>Examples: </dt><dd><p>p = sd.getTextSize(‘text_id’)</p>
 <p>print (‘Width = ‘, p.x, ‘Height = ‘, p.y)</p>
 </dd>
 </dl>
@@ -215,10 +226,10 @@ the width and height of the text.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.processSBML.load.getNodeTextFontColor">
 <code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">getNodeTextFontColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.getNodeTextFontColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the text font color of a node with its certain node id.</p>
+<dd><p>Get the text font color of a node with a given node id.</p>
 <dl>
 <dt>Args: </dt><dd><p>id: str-the id of the node.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 <dt>Returns:</dt><dd><p>txt_font_color: list-[rgba 1*4 matrix, html_name str (if any, otherwise ‘’), 
 hex str (8 digits)].</p>
@@ -229,10 +240,10 @@ hex str (8 digits)].</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.processSBML.load.getNodeTextLineWidth">
 <code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">getNodeTextLineWidth</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.getNodeTextLineWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the text line width of a node with its certain node id.</p>
+<dd><p>Get the text line width of a node with a given node id.</p>
 <dl>
 <dt>Args: </dt><dd><p>id: int-the id of the node.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 <dt>Returns:</dt><dd><p>txt_line_width: float-node text line width.</p>
 </dd>
@@ -241,10 +252,10 @@ hex str (8 digits)].</p>
 
 <dl class="py function">
 <dt id="SBMLDiagrams.processSBML.load.getTextFontSize">
-<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">getTextFontSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.getTextFontSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the arbitrary text font size with the text content.</p>
+<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">getTextFontSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.getTextFontSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the arbitrary text font size with the text id.</p>
 <dl class="simple">
-<dt>Args: </dt><dd><p>txt_str: str-the text content.</p>
+<dt>Args: </dt><dd><p>txt_id: str-the text id.</p>
 </dd>
 <dt>Returns:</dt><dd><p>txt_font_size: float-text font size.</p>
 </dd>
@@ -255,12 +266,23 @@ hex str (8 digits)].</p>
 <div class="section" id="edit-the-information-of-arbitrary-text">
 <h2>Edit the information of arbitrary text.<a class="headerlink" href="#edit-the-information-of-arbitrary-text" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
+<dt id="SBMLDiagrams.processSBML.load.setTextContent">
+<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">setTextContent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_id</span></em>, <em class="sig-param"><span class="n">txt_content</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.setTextContent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the arbitrary text content.</p>
+<dl>
+<dt>Args:  </dt><dd><p>txt_id: str-the text id.</p>
+<p>txt_content: str-the text content.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="SBMLDiagrams.processSBML.load.setTextPosition">
-<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">setTextPosition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_str</span></em>, <em class="sig-param"><span class="n">txt_position</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.setTextPosition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">setTextPosition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_id</span></em>, <em class="sig-param"><span class="n">txt_position</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.setTextPosition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the x,y coordinates of the arbitrary text position.</p>
 <dl>
-<dt>Args:  </dt><dd><p>txt_str: str-the text content.</p>
-<p>txt_position: list/point.Point()-</p>
+<dt>Args:  </dt><dd><p>txt_id: str-the text id.</p>
+<p>txt_position: list or point.Point()</p>
 <p>list-
 [txt_position_x, txt_position_y], the coordinate represents the top-left hand corner of 
 the node text.</p>
@@ -273,11 +295,11 @@ the x/y position of the top-left hand corner of the text.</p>
 
 <dl class="py function">
 <dt id="SBMLDiagrams.processSBML.load.setTextSize">
-<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">setTextSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_str</span></em>, <em class="sig-param"><span class="n">txt_size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.setTextSize" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">setTextSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_id</span></em>, <em class="sig-param"><span class="n">txt_size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.setTextSize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the arbitrary text size.</p>
 <dl>
-<dt>Args:  </dt><dd><p>txt_str: str-the text content.</p>
-<p>txt_size: list/point.Point()-</p>
+<dt>Args:  </dt><dd><p>txt_id: str-the text id.</p>
+<p>txt_size: list or point.Point()</p>
 <p>list-
 1*2 matrix-size of the text [width, height].</p>
 <p>point.Point()-
@@ -289,10 +311,10 @@ the text.</p>
 
 <dl class="py function">
 <dt id="SBMLDiagrams.processSBML.load.setTextFontColor">
-<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">setTextFontColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_str</span></em>, <em class="sig-param"><span class="n">txt_font_color</span></em>, <em class="sig-param"><span class="n">opacity</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.setTextFontColor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">setTextFontColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_id</span></em>, <em class="sig-param"><span class="n">txt_font_color</span></em>, <em class="sig-param"><span class="n">opacity</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.setTextFontColor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the arbitrary text font color.</p>
 <dl>
-<dt>Args:  </dt><dd><p>txt_str: str-the text content.</p>
+<dt>Args:  </dt><dd><p>txt_id: str-the text id.</p>
 <p>txt_font_color: list-decimal_rgb 1*3 matrix/str-html_name/str-hex_string (6-digit).</p>
 <p>opacity: float-value is between [0,1], default is fully opaque (opacity = 1.).</p>
 </dd>
@@ -301,10 +323,10 @@ the text.</p>
 
 <dl class="py function">
 <dt id="SBMLDiagrams.processSBML.load.setTextLineWidth">
-<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">setTextLineWidth</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_str</span></em>, <em class="sig-param"><span class="n">txt_line_width</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.setTextLineWidth" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">setTextLineWidth</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_id</span></em>, <em class="sig-param"><span class="n">txt_line_width</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.setTextLineWidth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the arbitrary text line width.</p>
 <dl>
-<dt>Args:  </dt><dd><p>txt_str: str-the text content.</p>
+<dt>Args:  </dt><dd><p>txt_id: str-the text id.</p>
 <p>txt_line_width: float-node text line width.</p>
 </dd>
 </dl>
@@ -312,11 +334,11 @@ the text.</p>
 
 <dl class="py function">
 <dt id="SBMLDiagrams.processSBML.load.setTextFontSize">
-<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">setTextFontSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_str</span></em>, <em class="sig-param"><span class="n">txt_font_size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.setTextFontSize" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">setTextFontSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_id</span></em>, <em class="sig-param"><span class="n">txt_font_size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.setTextFontSize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the arbitrary text font size.</p>
 <dl>
-<dt>Args:  </dt><dd><p>txt_str: str-the text content.</p>
-<p>txt_font_size: float-node text font size.</p>
+<dt>Args:  </dt><dd><p>txt_id: str-the text id.</p>
+<p>txt_font_size: float-text font size.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -326,18 +348,19 @@ the text.</p>
 <h2>Add and remove the an arbitrary text.<a class="headerlink" href="#add-and-remove-the-an-arbitrary-text" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="SBMLDiagrams.processSBML.load.addText">
-<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">addText</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_str</span></em>, <em class="sig-param"><span class="n">txt_position</span></em>, <em class="sig-param"><span class="n">txt_size</span></em>, <em class="sig-param"><span class="n">txt_font_color</span><span class="o">=</span><span class="default_value">[0, 0, 0]</span></em>, <em class="sig-param"><span class="n">opacity</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">txt_line_width</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">txt_font_size</span><span class="o">=</span><span class="default_value">12.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.addText" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">addText</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_id</span></em>, <em class="sig-param"><span class="n">txt_content</span></em>, <em class="sig-param"><span class="n">txt_position</span></em>, <em class="sig-param"><span class="n">txt_size</span></em>, <em class="sig-param"><span class="n">txt_font_color</span><span class="o">=</span><span class="default_value">[0, 0, 0]</span></em>, <em class="sig-param"><span class="n">opacity</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">txt_line_width</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">txt_font_size</span><span class="o">=</span><span class="default_value">12.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.addText" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add arbitrary text onto canvas.</p>
 <dl>
-<dt>Args:  </dt><dd><p>txt_str: str-the text content.</p>
-<p>txt_position: list/point.Point()-</p>
+<dt>Args: </dt><dd><p>txt_id: str-the text id.</p>
+<p>txt_content: str-the text content.</p>
+<p>txt_position: list or point.Point()</p>
 <p>list-
 [position_x, position_y], the coordinate represents the top-left hand corner of 
 the text.</p>
 <p>point.Point()-
 a Point object with attributes x and y representing
 the x/y position of the top-left hand corner of the text.</p>
-<p>txt_size: list/point.Point()-</p>
+<p>txt_size: list or point.Point()</p>
 <p>list-
 1*2 matrix-size of the text [width, height].</p>
 <p>point.Point()-
@@ -345,18 +368,18 @@ a Point object with attributes x and y representing the width and height of
 the text.</p>
 <p>txt_font_color: list-decimal_rgb 1*3 matrix/str-html_name/str-hex_string (6-digit).</p>
 <p>opacity: float-value is between [0,1], default is fully opaque (opacity = 1.).</p>
-<p>txt_line_width: float-node text line width.</p>
-<p>txt_font_size: float-node text font size.</p>
+<p>txt_line_width: float-text line width.</p>
+<p>txt_font_size: float-text font size.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="SBMLDiagrams.processSBML.load.removeText">
-<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">removeText</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.removeText" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">SBMLDiagrams.processSBML.load.</code><code class="sig-name descname">removeText</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">txt_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.processSBML.load.removeText" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove the arbitrary text from canvas.</p>
 <dl class="simple">
-<dt>Args:  </dt><dd><p>txt_str: str-the text content.</p>
+<dt>Args:  </dt><dd><p>txt_id: str-the text id.</p>
 </dd>
 </dl>
 </dd></dl>

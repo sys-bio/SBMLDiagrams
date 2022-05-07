@@ -169,7 +169,7 @@
 <dl class="py function">
 <dt id="SBMLDiagrams.load.getNodeIdList">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNodeIdList</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNodeIdList" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the list of node ids.</p>
+<dd><p>Returns the list of node ids.</p>
 <dl>
 <dt>Returns:</dt><dd><p>id_list-list of ids.</p>
 <p>id-str-node id.</p>
@@ -180,11 +180,11 @@
 <dl class="py function">
 <dt id="SBMLDiagrams.load.getNodeAliasNum">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNodeAliasNum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNodeAliasNum" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the number of alias nodes with its certain node id.</p>
+<dd><p>Get the number of alias nodes with a given node id.</p>
 <dl class="simple">
-<dt>Args: </dt><dd><p>id: str-the id of the Node.</p>
+<dt>Args: </dt><dd><p>id: str-the id of the node.</p>
 </dd>
-<dt>Returns:</dt><dd><p>num_alias: int-the number of alias nodes with the same node id.</p>
+<dt>Returns:</dt><dd><p>num_alias: int-the number of alias nodes with the given node id.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -192,10 +192,10 @@
 <dl class="py function">
 <dt id="SBMLDiagrams.load.isFloatingNode">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">isFloatingNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.isFloatingNode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Judge whether a node is floating node with its certain node id.</p>
+<dd><p>Returns True if the given node is a floating node.</p>
 <dl>
-<dt>Args: </dt><dd><p>id: str-the id of the Node.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<dt>Args: </dt><dd><p>id: str-the id of the node.</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 <dt>Returns:</dt><dd><p>floating_node: bool-floating node (True) or not (False).</p>
 </dd>
@@ -205,10 +205,10 @@
 <dl class="py function">
 <dt id="SBMLDiagrams.load.getNodePosition">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNodePosition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNodePosition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the position of a node with its certain node id.</p>
+<dd><p>Get the position of a node with a given node id.</p>
 <dl>
-<dt>Args: </dt><dd><p>id: str-the id of the Node.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<dt>Args: </dt><dd><p>id: str-the id of the node.</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 <dt>Returns:</dt><dd><p>position: a Point object with attributes x and y representing
 the x/y position of the top-left hand corner of the node.</p>
@@ -222,10 +222,10 @@ the x/y position of the top-left hand corner of the node.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.getNodeCenter">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNodeCenter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNodeCenter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the center point of a node with given id.</p>
+<dd><p>Get the center point of a node with a given node id.</p>
 <dl>
-<dt>Args: </dt><dd><p>id: str-the id of the Node.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<dt>Args: </dt><dd><p>id: str-the id of the node.</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 <dt>Returns:</dt><dd><p>position-a Point object with x and y coordinates of the center of the node.</p>
 </dd>
@@ -238,10 +238,10 @@ the x/y position of the top-left hand corner of the node.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.getNodeSize">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNodeSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNodeSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the size of a node with its certain node id.</p>
+<dd><p>Get the size of a node with a given node id.</p>
 <dl>
 <dt>Args: </dt><dd><p>id: str-the id of the node.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 <dt>Returns:</dt><dd><p>size: a Point object with attributes x and y representing
 the width and height of the node.</p>
@@ -255,10 +255,10 @@ the width and height of the node.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.getNodeShape">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNodeShape</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNodeShape" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the shape index and the shape of a node with its certain node id.</p>
+<dd><p>Get the shape index and the shape of a node with a given node id.</p>
 <dl>
 <dt>Args: </dt><dd><p>id: str-the id of the node.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 <dt>Returns:</dt><dd><p>shape: tuple (shape_name, vertex_positions)</p>
 <p>shape_name: str-the name of the node shape.</p>
@@ -270,10 +270,10 @@ the width and height of the node.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.getNodeTextPosition">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNodeTextPosition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNodeTextPosition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the text position of a node with its certain node id.</p>
+<dd><p>Get the text position of a node with a given node id.</p>
 <dl>
 <dt>Args: </dt><dd><p>id: str-the id of node.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 <dt>Returns:</dt><dd><p>txt_position: a Point object with attributes x and y representing
 the x/y position of the top-left hand corner of the node text.</p>
@@ -287,10 +287,10 @@ the x/y position of the top-left hand corner of the node text.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.getNodeTextSize">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNodeTextSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNodeTextSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the text size of a node with its certain node id.</p>
+<dd><p>Get the text size of a node with a given node id.</p>
 <dl>
 <dt>Args: </dt><dd><p>id: str-the id of the node.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 <dt>Returns:</dt><dd><p>size: a Point object with attributes x and y representing
 the width and height of the node text.</p>
@@ -304,13 +304,14 @@ the width and height of the node text.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.getNodeFillColor">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNodeFillColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNodeFillColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the fill color of a node with its certain node id.</p>
+<dd><p>Get the fill color of a node with a given node id.</p>
 <dl>
 <dt>Args: </dt><dd><p>id: str-the id of the node.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 <dt>Returns:</dt><dd><p>fill_color: list-[rgba 1*4 matrix, html_name str (if any, otherwise ‘’), 
-hex str (8 digits)]; or list-[str-gradient_type, list-gradient_info, list-stop_info],
+hex str (8 digits)];</p>
+<p>or list-[str-gradient_type, list-gradient_info, list-stop_info],
 where gradient_type can be ‘linearGradient’ or ‘radialGradient’, while gradient_info
 and stop_info refers to setNodeFillLinearGradient() and setNodeFillRadialGradient.</p>
 </dd>
@@ -320,10 +321,10 @@ and stop_info refers to setNodeFillLinearGradient() and setNodeFillRadialGradien
 <dl class="py function">
 <dt id="SBMLDiagrams.load.getNodeBorderColor">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNodeBorderColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNodeBorderColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the border color of a node with its certain node id.</p>
+<dd><p>Get the border color of a node with a given node id.</p>
 <dl>
 <dt>Args: </dt><dd><p>id: str-the id of the node.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 <dt>Returns:</dt><dd><p>border_color: list-[rgba 1*4 matrix, html_name str (if any, otherwise ‘’), 
 hex str (8 digits)].</p>
@@ -334,10 +335,10 @@ hex str (8 digits)].</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.getNodeBorderWidth">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNodeBorderWidth</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNodeBorderWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the border width of a node with its certain node id.</p>
+<dd><p>Get the border width of a node with a given node id.</p>
 <dl>
 <dt>Args: </dt><dd><p>id: str-the id of the node.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 <dt>Returns:</dt><dd><p>border_width: float-node border line width.</p>
 </dd>
@@ -347,10 +348,10 @@ hex str (8 digits)].</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.getNodeTextFontColor">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNodeTextFontColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNodeTextFontColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the text font color of a node with its certain node id.</p>
+<dd><p>Get the text font color of a node with a given node id.</p>
 <dl>
 <dt>Args: </dt><dd><p>id: str-the id of the node.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 <dt>Returns:</dt><dd><p>txt_font_color: list-[rgba 1*4 matrix, html_name str (if any, otherwise ‘’), 
 hex str (8 digits)].</p>
@@ -361,10 +362,10 @@ hex str (8 digits)].</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.getNodeTextLineWidth">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNodeTextLineWidth</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNodeTextLineWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the text line width of a node with its certain node id.</p>
+<dd><p>Get the text line width of a node with a given node id.</p>
 <dl>
 <dt>Args: </dt><dd><p>id: int-the id of the node.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 <dt>Returns:</dt><dd><p>txt_line_width: float-node text line width.</p>
 </dd>
@@ -374,10 +375,10 @@ hex str (8 digits)].</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.getNodeTextFontSize">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNodeTextFontSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNodeTextFontSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the text font size of a node with its certain node id.</p>
+<dd><p>Get the text font size of a node with a given node id.</p>
 <dl>
 <dt>Args: </dt><dd><p>id: str-the id of the node.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 <dt>Returns:</dt><dd><p>txt_font_size: float.</p>
 </dd>
@@ -394,7 +395,7 @@ hex str (8 digits)].</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
 <p>floating_node: bool-floating node (True) or not (False).</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias node -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -405,13 +406,13 @@ hex str (8 digits)].</p>
 <dd><p>Set the x,y coordinates of the node position.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>position: list/point.Point()-</p>
+<p>position: list or point.Point()</p>
 <p>list-
 [position_x, position_y], the coordinate represents the top-left hand corner of the node.</p>
 <p>point.Point()-
 a Point object with attributes x and y representing
 the x/y position of the top-left hand corner of the node.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -425,14 +426,14 @@ position to be the same, otherwise use setNodePosition() and setNodeTextPosition
 separately to set the position of the node and the node text.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>position: list/point.Point()-</p>
+<p>position: list or point.Point()</p>
 <p>list-
 [position_x, position_y], the coordinate represents the top-left hand corner of the 
 node and the node text.</p>
 <p>point.Point()-
 a Point object with attributes x and y representing
 the x/y position of the top-left hand corner of the node and the node text.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -443,13 +444,13 @@ the x/y position of the top-left hand corner of the node and the node text.</p>
 <dd><p>Set the node size.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>size: list/point.Point()-</p>
+<p>size: list or point.Point()</p>
 <p>list-
 1*2 matrix-size of the node [width, height].</p>
 <p>point.Point()-
 a Point object with attributes x and y representing the width and height of 
 the node.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -460,13 +461,13 @@ the node.</p>
 <dd><p>Set the node and node text size if there are consistent.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>size: list/point.Point()-</p>
+<p>size: list or point.Point()</p>
 <p>list-
 1*2 matrix-size of the node and text [width, height].</p>
 <p>point.Point()-
 a Point object with attributes x and y representing the width and height of 
 the node and node text.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -477,16 +478,12 @@ the node and node text.</p>
 <dd><p>Set the node shape by shape index or name string.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>shape: int/str-</p>
-<dl class="simple">
-<dt>int-</dt><dd><p>0:text_only, 1:rectangle, 2:ellipse, 3:hexagon, 4:line, or 5:triangle;
+<p>shape: int or str
+int-0:text_only, 1:rectangle, 2:ellipse, 3:hexagon, 4:line, or 5:triangle;
 6:upTriangle, 7:downTriangle, 8:leftTriangle, 9: rightTriangle.</p>
-</dd>
-<dt>str-</dt><dd><p>“text_only”, “rectangle”, “ellipse”, “hexagon”, “line”, or “triangle”;
+<p>str-“text_only”, “rectangle”, “ellipse”, “hexagon”, “line”, or “triangle”;
 “upTriangle”, “downTriangle”, “leftTriangle”, “rightTriangle”.</p>
-</dd>
-</dl>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -500,7 +497,7 @@ the node and node text.</p>
 <p>shape_name: str-name of the arbitrary polygon shape.</p>
 <p>shape_info: list-[[x1,y1],[x2,y2],[x3,y3],etc], where x,y are floating numbers from 0 to 100.
 x represents the percentage of width, and y represents the percentage of height.</p>
-<p>alias: alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -511,14 +508,14 @@ x represents the percentage of width, and y represents the percentage of height.
 <dd><p>Set the x,y coordinates of the node text position.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>txt_position: list/point.Point()-</p>
+<p>txt_position: list or point.Point()</p>
 <p>list-
 [txt_position_x, txt_position_y], the coordinate represents the top-left hand 
 corner of the node text.</p>
 <p>point.Point()-
 a Point object with attributes x and y representing
 the x/y position of the top-left hand corner of the node text.</p>
-<p>alias: alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -529,14 +526,14 @@ the x/y position of the top-left hand corner of the node text.</p>
 <dd><p>Move the x,y coordinates of the node text position relative to its original position.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>rel_position: list/point.Point()-</p>
+<p>rel_position: list or point.Point()</p>
 <p>list-
 [rel_position_x, rel_position_y], the relative coordinates moving away from the 
 original node text position.</p>
 <p>point.Point()-
 a Point object with attributes x and y representing the relative coordinates moving 
 away from the original node text position.</p>
-<p>alias: alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -544,10 +541,10 @@ away from the original node text position.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setNodeTextPositionCenter">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeTextPositionCenter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeTextPositionCenter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the node text position as the center of the node.</p>
+<dd><p>Set the node text position to the center of the node.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -555,10 +552,10 @@ away from the original node text position.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setNodeTextPositionLeftCenter">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeTextPositionLeftCenter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeTextPositionLeftCenter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the node text position as the left center of the node.</p>
+<dd><p>Set the node text position to the left center of the node.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>alias: alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -566,10 +563,10 @@ away from the original node text position.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setNodeTextPositionRightCenter">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeTextPositionRightCenter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeTextPositionRightCenter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the node text position as the right center of the node.</p>
+<dd><p>Set the node text position to the right center of the node.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>alias: int- alias node index [0, num_alias).</p>
+<p>alias: int- alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -577,10 +574,10 @@ away from the original node text position.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setNodeTextPositionUpperCenter">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeTextPositionUpperCenter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeTextPositionUpperCenter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the node text position as the upper center of the node.</p>
+<dd><p>Set the node text position to the upper center of the node.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>alias: alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -588,10 +585,10 @@ away from the original node text position.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setNodeTextPositionLowerCenter">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeTextPositionLowerCenter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeTextPositionLowerCenter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the node text position as the lower center of the node.</p>
+<dd><p>Set the node text position to the lower center of the node.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -599,10 +596,10 @@ away from the original node text position.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setNodeTextPositionUpperLeft">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeTextPositionUpperLeft</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeTextPositionUpperLeft" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the node text position as the upper left of the node.</p>
+<dd><p>Set the node text position to the upper left of the node.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -610,10 +607,10 @@ away from the original node text position.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setNodeTextPositionUpperRight">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeTextPositionUpperRight</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeTextPositionUpperRight" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the node text position as the upper right of the node.</p>
+<dd><p>Set the node text position to the upper right of the node.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -621,10 +618,10 @@ away from the original node text position.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setNodeTextPositionLowerLeft">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeTextPositionLowerLeft</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeTextPositionLowerLeft" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the node text position as the lower left of the node.</p>
+<dd><p>Set the node text position to the lower left of the node.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -632,10 +629,10 @@ away from the original node text position.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setNodeTextPositionLowerRight">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeTextPositionLowerRight</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeTextPositionLowerRight" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the node text position as the lower right of the node.</p>
+<dd><p>Set the node text position to the lower right of the node.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -643,16 +640,17 @@ away from the original node text position.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setNodeTextSize">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeTextSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">txt_size</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeTextSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the node text size.</p>
+<dd><p>Set the node text size with given node id.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>txt_size: list/point.Point()-</p>
+<p>txt_size: list or point.Point()</p>
 <p>list-
 1*2 matrix-size of the node text [width, height].</p>
 <p>point.Point()-
 a Point object with attributes x and y representing the width and height of 
-the node text.</p>
-<p>alias: alias node index [0, num_alias).</p>
+bounding box that enclosed the node text. The text font size wil be adjusted to fill
+the given bounding box.</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -660,12 +658,12 @@ the node text.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setNodeFillColor">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeFillColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">fill_color</span></em>, <em class="sig-param"><span class="n">opacity</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeFillColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the node fill color.</p>
+<dd><p>Set the node fill color with given node id.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
 <p>fill_color: list-decimal_rgb 1*3 matrix/str-html_name/str-hex_string (6-digit).</p>
 <p>opacity: float-value is between [0,1], default is fully opaque (opacity = 1.).</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -673,14 +671,20 @@ the node text.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setNodeFillLinearGradient">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeFillLinearGradient</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">gradient_info</span></em>, <em class="sig-param"><span class="n">stop_info</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeFillLinearGradient" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the node fill linear gradient.</p>
+<dd><p>Set the node fill linear gradient with given node id.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
 <p>gradient_info: list - [[x1,y1],[x2,y2]], where x,y are floating numbers from 0 to 100.
 x represents the percentage of width, and y represents the percentage of height.</p>
-<p>stop_info: list - [[x1,[r1,g1,b1,a1]],[x2,[r2,g2,b2,a2]],etc],
+<p>stop_info: 
+list - [[x1,[r1,g1,b1,a1]],[x2,[r2,g2,b2,a2]],etc],
 where x is floating number from 0 to 100.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>or list - [[x1, html_name_str, opacity], [x2, html_name_str, opacity], etc], 
+where opacity: float-value is between [0,1], default is fully opaque (opacity = 1.).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
+</dd>
+<dt>Examples:</dt><dd><p>setNodeFillLinearGradient(“ADH1”, [[0.0, 50.], [100.0, 50.0]], [[0.0, [255, 255, 255, 255]], [100.0, [192, 192, 192, 255]]])</p>
+<p>setNodeFillLinearGradient(“ADH1”, [[0.0, 50.], [100.0, 50.0]], [[0.0, “red”, 1.0], [100.0, “blue”, 1.0]])</p>
 </dd>
 </dl>
 </dd></dl>
@@ -693,9 +697,13 @@ where x is floating number from 0 to 100.</p>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
 <p>gradient_info: list - [[x1,y1],[r]], where x,y,r are floating numbers from 0 to 100.
 x represents the center with percentage of width and height; r represents the radius.</p>
-<p>stop_info, list - [[x1,[r1,g1,b1,a1]],[x2,[r2,g2,b2,a2]],etc],
-where x is floating number from 0 to 100.</p>
-<p>alias: alias node index [0, num_alias).</p>
+<p>stop_info:
+list - [[x1,[r1,g1,b1,a1]],[x2,[r2,g2,b2,a2]],etc], where x is floating number from 0 to 100.</p>
+<p>or list - [[x1, html_name_str, opacity], [x2, html_name_str, opacity], etc], where opacity: float-value is between [0,1], default is fully opaque (opacity = 1.).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
+</dd>
+<dt>Examples:</dt><dd><p>df.setNodeFillRadialGradient(“Species_1”, [[50.0, 50.0], [50.]], [[0.0, [255, 255, 255, 255]], [100.0, [0, 0, 0, 255]]])</p>
+<p>df.setNodeFillRadialGradient(“Species_1”, [[50.0, 50.0], [50.]], [[0.0, “red”, 1.0], [100.0, “blue”, 1.0]])</p>
 </dd>
 </dl>
 </dd></dl>
@@ -703,12 +711,14 @@ where x is floating number from 0 to 100.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setNodeBorderColor">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeBorderColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">border_color</span></em>, <em class="sig-param"><span class="n">opacity</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeBorderColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the node border color.</p>
+<dd><p>Set the node border color of a node with a given id.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
 <p>border_color: list-decimal_rgb 1*3 matrix/str-html_name/str-hex_string (6-digit).</p>
 <p>opacity: float-value is between [0,1], default is fully opaque (opacity = 1.).</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
+</dd>
+<dt>Examples:</dt><dd><p>la.setNodeBorderColor (‘node1’, ‘CornflowerBlue’)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -716,11 +726,13 @@ where x is floating number from 0 to 100.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setNodeBorderWidth">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeBorderWidth</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">border_width</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeBorderWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the node border width.</p>
+<dd><p>Set the node border width for a node of given id.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
 <p>border_width: float-node border line width.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
+</dd>
+<dt>Examples:</dt><dd><p>la.setNodeBorderWidth (‘node4’, 3)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -728,12 +740,14 @@ where x is floating number from 0 to 100.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setNodeTextFontColor">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeTextFontColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">txt_font_color</span></em>, <em class="sig-param"><span class="n">opacity</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeTextFontColor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the node text font color.</p>
+<dd><p>Set the node text font color for a node of given id.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
 <p>txt_font_color: list-decimal_rgb 1*3 matrix/str-html_name/str-hex_string (6-digit).</p>
 <p>opacity: float-value is between [0,1], default is fully opaque (opacity = 1.).</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
+</dd>
+<dt>Examples:</dt><dd><p>la.setNodeTextFontColor (‘node1’, ‘CornflowerBlue’)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -741,11 +755,11 @@ where x is floating number from 0 to 100.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setNodeTextLineWidth">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeTextLineWidth</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">txt_line_width</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeTextLineWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the node text line width.</p>
+<dd><p>Set the node text line width for a node of given id.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
 <p>txt_line_width: float-node text line width.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -753,11 +767,11 @@ where x is floating number from 0 to 100.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.setNodeTextFontSize">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeTextFontSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">txt_font_size</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeTextFontSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the node text font size.</p>
+<dd><p>Set the node text font size for a node of given id.</p>
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
-<p>txt_font_size: float-node text font size.</p>
-<p>alias: int-alias node index [0, num_alias).</p>
+<p>txt_font_size: float-node text font size, the units for size are assumed to be in points.</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>
 </dd></dl>
