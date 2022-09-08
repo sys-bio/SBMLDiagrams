@@ -183,17 +183,21 @@ export it as an updated SBML string.</p>
 
 <dl class="py function">
 <dt id="SBMLDiagrams.load.autolayout">
-<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">autolayout</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">layout</span><span class="o">=</span><span class="default_value">'spectral'</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">200</span></em>, <em class="sig-param"><span class="n">iterations</span><span class="o">=</span><span class="default_value">100</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.autolayout" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">autolayout</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">layout</span><span class="o">=</span><span class="default_value">'spring'</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">200</span></em>, <em class="sig-param"><span class="n">k</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">iterations</span><span class="o">=</span><span class="default_value">100</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.autolayout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Autolayout the node positions using networkX library.</p>
 <p>layout: str-the layout name from networkX, which can be one of the following:</p>
 <blockquote>
-<div><p>spectral: positioning the nodes using the eigenvectors of the graph Laplacian;</p>
-<p>spring (default): positioning nodes using Fruchterman-Reingold force-directed algorithm;</p>
-<p>random: positioning nodes randomly.</p>
-<p>circular: positioning nodes on a circle.</p>
+<div><p>spring (default): positioning nodes using Fruchterman-Reingold force-directed algorithm;</p>
+<p>spectral: positioning the nodes using the eigenvectors of the graph Laplacian;</p>
+<p>random: positioning nodes randomly;</p>
+<p>circular: positioning nodes on a circle;</p>
+<p>#(comming soon) graphviz: positioning the nodes using Graphiz.</p>
 </div></blockquote>
-<p>scale: float-the scaling factor to use</p>
-<p>iterations: int-maximum number of iterations to use during the calculation.</p>
+<p>scale (applies to “spring”, “spectral”, “circular”): float-Scale factor for positions. 
+The nodes are positioned in a box of size scale in each dim centered at center.</p>
+<p>k (applies to “spring”): float-Optimal distance between nodes. 
+Increase this value to move nodes farther apart.</p>
+<p>iterations (applies to “spring”): int-maximum number of iterations to use during the calculation.</p>
 </dd></dl>
 
 <dl class="py function">

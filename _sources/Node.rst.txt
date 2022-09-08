@@ -32,11 +32,17 @@ Read the node information.
 
 .. autofunction:: SBMLDiagrams.load.getNodeBorderWidth
 
+.. autofunction:: SBMLDiagrams.load.getNodeTextContent
+
 .. autofunction:: SBMLDiagrams.load.getNodeTextFontColor
 
 .. autofunction:: SBMLDiagrams.load.getNodeTextLineWidth
 
 .. autofunction:: SBMLDiagrams.load.getNodeTextFontSize
+
+.. autofunction:: SBMLDiagrams.load.getNodeTextAnchor
+
+.. autofunction:: SBMLDiagrams.load.getNodeTextVAnchor
 
 ----------------------------
 Edit the node information.
@@ -90,11 +96,17 @@ Edit the node information.
 
 .. autofunction:: SBMLDiagrams.load.setNodeBorderWidth
 
+.. autofunction:: SBMLDiagrams.load.setNodeTextContent
+
 .. autofunction:: SBMLDiagrams.load.setNodeTextFontColor
 
 .. autofunction:: SBMLDiagrams.load.setNodeTextLineWidth
 
 .. autofunction:: SBMLDiagrams.load.setNodeTextFontSize
+
+.. autofunction:: SBMLDiagrams.load.setNodeTextAnchor
+
+.. autofunction:: SBMLDiagrams.load.setNodeTextVAnchor
 
 
 

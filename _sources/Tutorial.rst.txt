@@ -86,7 +86,7 @@ Tutorial
    la.setReactionCenterPosition("J3",[550,150])
    la.setReactionBezierHandles("J3", [[550,150],[530,155],[600,120]])
 
-   la.draw(showReversible=True, setImageSize=[600,300])
+   la.draw(setImageSize=[600,300])
 
 
 4) Interface to Tellurium example 2 with alias nodes. You can assign a feature repeatly with a function.
@@ -177,6 +177,7 @@ Tutorial
    df.setNodeShape("ATP","ellipse")
    df.setNodeAndTextSize("ATP",[50,50])
    df.setNodeAndTextSize("myosinATP",[70,100])
+   df.setNodeTextContent("myosinATP", "-")
    df.setNodeArbitraryPolygonShape("myosinATP","myosinATP-polygon", [[12.5,0],[87.5,0],[100,12.5],[100,87.5],
    [87.5,100],[12.5,100],[0,87.5],[0,12.5]])
    df.setReactionDefaultCenterAndHandlePositions('J1')
@@ -234,7 +235,7 @@ Tutorial
    df.setNodeAndTextSize("NADH",[50,50])
    df.setReactionDefaultCenterAndHandlePositions('J0')
    #print(df.getReactionCenterPosition("J0"))  
-   df.addRectangle("centroid_sqaure", [235.0, 265.0], [20,20], 
+   df.addRectangle("centroid_sqaure", [239, 269], [12,12], 
    fill_color=[91, 176, 253], border_color = [91,176,253])
    df.setNodeFillLinearGradient("ADH1", [[0.0, 50.], [100.0, 50.0]],
    [[0.0, [255, 255, 255, 255]], [100.0, [192, 192, 192, 255]]])

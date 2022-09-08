@@ -346,6 +346,19 @@ hex str (8 digits)].</p>
 </dd></dl>
 
 <dl class="py function">
+<dt id="SBMLDiagrams.load.getNodeTextContent">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNodeTextContent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNodeTextContent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the text content of a node with a given node id.</p>
+<dl>
+<dt>Args: </dt><dd><p>id: str-the id of the node.</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
+</dd>
+<dt>Returns:</dt><dd><p>txt_content: str-the content of the node text.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="SBMLDiagrams.load.getNodeTextFontColor">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNodeTextFontColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNodeTextFontColor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the text font color of a node with a given node id.</p>
@@ -381,6 +394,34 @@ hex str (8 digits)].</p>
 <p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 <dt>Returns:</dt><dd><p>txt_font_size: float.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.getNodeTextAnchor">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNodeTextAnchor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNodeTextAnchor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the horizontal anchor of a node text with a given node id.</p>
+<dl>
+<dt>Args: </dt><dd><p>id: str-the id of the node.</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
+</dd>
+<dt>Returns:</dt><dd><p>txt_anchor: str-the horizantal anchor of the node text, which can be “start”,
+“middle” and “end”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.getNodeTextVAnchor">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getNodeTextVAnchor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getNodeTextVAnchor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the vertical anchor of a node text with a given node id.</p>
+<dl>
+<dt>Args: </dt><dd><p>id: str-the id of the node.</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
+</dd>
+<dt>Returns:</dt><dd><p>txt_anchor: str-the vertical anchor of the node text, which can be “top”, 
+“middle”, “baseline” and “bottom”.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -738,6 +779,20 @@ list - [[x1,[r1,g1,b1,a1]],[x2,[r2,g2,b2,a2]],etc], where x is floating number f
 </dd></dl>
 
 <dl class="py function">
+<dt id="SBMLDiagrams.load.setNodeTextContent">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeTextContent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">txt_content</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeTextContent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the node text content for a node of given id.</p>
+<dl>
+<dt>Args:  </dt><dd><p>id: str-node id.</p>
+<p>txt_content: str-node text content.</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
+</dd>
+<dt>Examples:</dt><dd><p>la.setNodeTextContent (‘node4’, ‘N4’)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="SBMLDiagrams.load.setNodeTextFontColor">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeTextFontColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">txt_font_color</span></em>, <em class="sig-param"><span class="n">opacity</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeTextFontColor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the node text font color for a node of given id.</p>
@@ -771,6 +826,32 @@ list - [[x1,[r1,g1,b1,a1]],[x2,[r2,g2,b2,a2]],etc], where x is floating number f
 <dl>
 <dt>Args:  </dt><dd><p>id: str-node id.</p>
 <p>txt_font_size: float-node text font size, the units for size are assumed to be in points.</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.setNodeTextAnchor">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeTextAnchor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">txt_anchor</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeTextAnchor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the horizontal anchor for a node text of given id.</p>
+<dl>
+<dt>Args:  </dt><dd><p>id: str-node id.</p>
+<p>txt_anchor: str-node text horizontal anchor, which can be “start”,
+“middle” and “end”.</p>
+<p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.setNodeTextVAnchor">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setNodeTextVAnchor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">txt_vanchor</span></em>, <em class="sig-param"><span class="n">alias</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setNodeTextVAnchor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the vertical anchor for a node text of given id.</p>
+<dl>
+<dt>Args:  </dt><dd><p>id: str-node id.</p>
+<p>txt_vanchor: str-node text vertical anchor, which can be which can be “top”, 
+“middle”, “baseline” and “bottom”.</p>
 <p>alias: int-alias node index: 0 to number of alias nodes -1.</p>
 </dd>
 </dl>

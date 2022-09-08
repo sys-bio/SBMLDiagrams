@@ -233,21 +233,6 @@ hex str (8 digits)].</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="SBMLDiagrams.load.getReactionArrowHeadSize">
-<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getReactionArrowHeadSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getReactionArrowHeadSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the arrow head size of reactions with a given reaction id.</p>
-<p>Args:</p>
-<dl>
-<dt>Returns:</dt><dd><p>arrow_head_size: a Point object with attributes x and y representing
-the width and height of the arrow head.</p>
-</dd>
-<dt>Examples: </dt><dd><p>p = sd.getReactionArrowHeadSize(‘reaction_id’)</p>
-<p>print (‘Width = ‘, p.x, ‘Height = ‘, p.y)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt id="SBMLDiagrams.load.getReactionDashStyle">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getReactionDashStyle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getReactionDashStyle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the dash information with a given reaction id.</p>
@@ -258,6 +243,109 @@ the width and height of the arrow head.</p>
 [a,b] means drawing a a-point line and following a b-point gap and etc;
 [a,b,c,d] means drawing a a-point line and following a b-point gap, and then
 drawing a c-point line followed by a d-point gap.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.getReactionArrowHeadSize">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getReactionArrowHeadSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getReactionArrowHeadSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the arrow head size of reactions with a given reaction id.</p>
+<dl>
+<dt>Args: </dt><dd><p>id: str-the id of the reaction.</p>
+</dd>
+<dt>Returns:</dt><dd><p>arrow_head_size: a Point object with attributes x and y representing
+the width and height of the arrow head.</p>
+</dd>
+<dt>Examples: </dt><dd><p>p = sd.getReactionArrowHeadSize(‘reaction_id’)</p>
+<p>print (‘Width = ‘, p.x, ‘Height = ‘, p.y)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.getReactionArrowHeadFillColor">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getReactionArrowHeadFillColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getReactionArrowHeadFillColor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the fill color of the reaction arrow head with a given reaction id.</p>
+<dl class="simple">
+<dt>Args: </dt><dd><p>id: str-the id of the reaction.</p>
+</dd>
+<dt>Returns:</dt><dd><p>fill_color: list-[rgba 1*4 matrix, html_name str (if any, otherwise ‘’), 
+hex str (8 digits)]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.getReactionArrowHeadShape">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getReactionArrowHeadShape</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getReactionArrowHeadShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the shape of the reaction arrow head with a given reaction id.</p>
+<dl>
+<dt>Args: </dt><dd><p>id: str-the id of the reaction.</p>
+</dd>
+<dt>Returns:</dt><dd><p>shape: tuple (shape_type_list, shape_info_list)</p>
+<p>shape_type_list: list of str-the name of the arrow head shape.</p>
+<p>shape_info_list: list-the shape information corresponding to the list of 
+shape_type_list.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.getReactionModifierNum">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getReactionModifierNum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getReactionModifierNum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of modifiers of reactions with a given reaction id.</p>
+<dl class="simple">
+<dt>Args: </dt><dd><p>id: str-the id of the reaction.</p>
+</dd>
+<dt>Returns:</dt><dd><p>modifier_num: int-number of modifiers.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.getReactionModifierHeadSize">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getReactionModifierHeadSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">mod_idx</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getReactionModifierHeadSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the modifier head size of reactions with a given reaction id.</p>
+<dl>
+<dt>Args: </dt><dd><p>id: str-the id of the reaction.</p>
+<p>mod_idx: int-index of the modifier: 0 to number of modifiers -1.</p>
+</dd>
+<dt>Returns:</dt><dd><p>head_size: a Point object with attributes x and y representing
+the width and height of the modifier head.</p>
+</dd>
+<dt>Examples: </dt><dd><p>p = sd.getReactionModifierHeadSize(‘reaction_id’)</p>
+<p>print (‘Width = ‘, p.x, ‘Height = ‘, p.y)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.getReactionModifierHeadFillColor">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getReactionModifierHeadFillColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">mod_idx</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getReactionModifierHeadFillColor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the fill color of the reaction modifier head with a given reaction id.</p>
+<dl>
+<dt>Args: </dt><dd><p>id: str-the id of the reaction.</p>
+<p>mod_idx: int-index of the modifier: 0 to number of modifiers -1.</p>
+</dd>
+<dt>Returns:</dt><dd><p>fill_color: list-[rgba 1*4 matrix, html_name str (if any, otherwise ‘’), 
+hex str (8 digits)]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.getReactionModifierHeadShape">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">getReactionModifierHeadShape</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">mod_idx</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.getReactionModifierHeadShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the shape of the reaction modifier head with a given reaction id.</p>
+<dl>
+<dt>Args: </dt><dd><p>id: str-the id of the reaction.</p>
+<p>mod_idx: int-index of the modifier: 0 to number of modifiers -1.</p>
+</dd>
+<dt>Returns:</dt><dd><p>shape: tuple (shape_type_list, shape_info_list)</p>
+<p>shape_type_list: list of str-the name of the modifier head shape.</p>
+<p>shape_info_list: list-the shape information corresponding to the list of 
+shape_type_list.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -348,23 +436,6 @@ and the default handle positions are middle points of nodes (species) and the ce
 </dd></dl>
 
 <dl class="py function">
-<dt id="SBMLDiagrams.load.setReactionArrowHeadSize">
-<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setReactionArrowHeadSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setReactionArrowHeadSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the reaction arrow head size with a certain reaction id.</p>
-<dl>
-<dt>Args:  </dt><dd><p>size: list or point.Point()</p>
-<p>list-
-1*2 matrix-size of the arrow head [width, height].</p>
-<p>point.Point()-
-a Point object with attributes x and y representing the width and height of 
-the arrow head.</p>
-</dd>
-<dt>Examples:</dt><dd><p>setReactionArrowHeadSize(“r_0”, [50., 50.])</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt id="SBMLDiagrams.load.setReactionDashStyle">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setReactionDashStyle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">dash</span><span class="o">=</span><span class="default_value">[]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setReactionDashStyle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the reaction dash information with a certain reaction id.</p>
@@ -376,6 +447,117 @@ the arrow head.</p>
 drawing a c-point line followed by a d-point gap.</p>
 </dd>
 <dt>Examples:</dt><dd><p>To produce a dash such as - - - -, use setReactionDashStyle (‘J1’, [5,5,5,5]).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.setReactionArrowHeadSize">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setReactionArrowHeadSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setReactionArrowHeadSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the reaction arrow head size with a certain reaction id.</p>
+<dl>
+<dt>Args: </dt><dd><p>id: str-reaction id.</p>
+<p>size: list or point.Point()</p>
+<p>list-
+1*2 matrix-size of the arrow head [width, height].</p>
+<p>point.Point()-
+a Point object with attributes x and y representing the width and height of 
+the arrow head.</p>
+</dd>
+<dt>Examples:</dt><dd><p>setReactionArrowHeadSize(“r_0”, [12., 12.])</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.setReactionArrowHeadFillColor">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setReactionArrowHeadFillColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">fill_color</span></em>, <em class="sig-param"><span class="n">opacity</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setReactionArrowHeadFillColor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the reaction arrow head fill color with a certain reaction id.</p>
+<dl>
+<dt>Args: </dt><dd><p>id: str-reaction id.</p>
+<p>fill_color: list-decimal_rgb 1*3 matrix/str-html_name/str-hex_string (6-digit).</p>
+<p>opacity: float-value is between [0,1], default is fully opaque (opacity = 1.).</p>
+</dd>
+<dt>Examples:</dt><dd><p>setReactionArrowHeadFillColor (‘J1’, “BurlyWood”)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.setReactionArrowHeadShape">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setReactionArrowHeadShape</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">shape_type_list</span></em>, <em class="sig-param"><span class="n">shape_info_list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setReactionArrowHeadShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set shape(s) to a reaction arrow head by the shape info.</p>
+<dl>
+<dt>Args:  </dt><dd><p>id: str-node id.</p>
+<p>shape_type_list: list-list of shape_type.</p>
+<p>shape_type: str-polygon, ellipse, rectangle.</p>
+<p>shape_info_list: list-list of shape_info.</p>
+<p>shape_info: list-</p>
+<p>if polygon:
+[[x1,y1],[x2,y2],[x3,y3],etc], where x,y are floating numbers from 0 to 100.
+x represents the percentage of width, and y represents the percentage of height.</p>
+<p>if ellipse:
+[[cx, cy], [rx, ry]], where each number is a floating number from 0 to 100.
+c represent the center of the ellipse, and r represents its radii.</p>
+<p>if rectangle:
+[]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.setReactionModifierHeadSize">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setReactionModifierHeadSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">size</span></em>, <em class="sig-param"><span class="n">mod_idx</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setReactionModifierHeadSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the reaction modifier head size with a certain reaction id.</p>
+<dl>
+<dt>Args: </dt><dd><p>id: str-reaction id.</p>
+<p>size: list or point.Point()</p>
+<p>list-
+1*2 matrix-size of the modifier head [width, height].</p>
+<p>point.Point()-
+a Point object with attributes x and y representing the width and height of 
+the modifier head.</p>
+<p>mod_idx: int-the index of the modifier: 0 to number of modifiers -1.</p>
+</dd>
+<dt>Examples:</dt><dd><p>setReactionModifierHeadSize(“r_0”, [12., 12.])</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.setReactionModifierHeadFillColor">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setReactionModifierHeadFillColor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">fill_color</span></em>, <em class="sig-param"><span class="n">opacity</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">mod_idx</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setReactionModifierHeadFillColor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the reaction modifier head fill color with a certain reaction id.</p>
+<dl>
+<dt>Args: </dt><dd><p>id: str-reaction id.</p>
+<p>fill_color: list-decimal_rgb 1*3 matrix/str-html_name/str-hex_string (6-digit).</p>
+<p>opacity: float-value is between [0,1], default is fully opaque (opacity = 1.).</p>
+<p>mod_idx: int-the index of the modifier: 0 to number of modifiers -1.</p>
+</dd>
+<dt>Examples:</dt><dd><p>setReactionModifierHeadFillColor (‘J1’, “BurlyWood”)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="SBMLDiagrams.load.setReactionModifierHeadShape">
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">setReactionModifierHeadShape</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">shape_type_list</span></em>, <em class="sig-param"><span class="n">shape_info_list</span></em>, <em class="sig-param"><span class="n">mod_idx</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.setReactionModifierHeadShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set shape(s) to a reaction modifier head by the shape info.</p>
+<dl>
+<dt>Args:  </dt><dd><p>id: str-node id.</p>
+<p>shape_type_list: list-list of shape_type.</p>
+<p>shape_type: str-polygon, ellipse, rectangle.</p>
+<p>shape_info_list: list-list of shape_info.</p>
+<p>shape_info: list-</p>
+<p>if polygon:
+[[x1,y1],[x2,y2],[x3,y3],etc], where x,y are floating numbers from 0 to 100.
+x represents the percentage of width, and y represents the percentage of height.</p>
+<p>if ellipse:
+[[cx, cy], [rx, ry]], where each number is a floating number from 0 to 100.
+c represent the center of the ellipse, and r represents its radii.</p>
+<p>if rectangle:
+[]</p>
+<p>mod_idx: int-the index of the modifier: 0 to number of modifiers -1.</p>
 </dd>
 </dl>
 </dd></dl>
