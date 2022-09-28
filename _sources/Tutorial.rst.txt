@@ -274,28 +274,32 @@ The file style.json:
    "colorStyle": [
       {
          "style_name": "simplicity",
-         "compartment_fill_color": "255, 255, 255, 255",
-         "compartment_border_color": "255, 255, 255, 255",
-         "species_fill_color": "255, 255, 255, 255",
-         "species_border_color": "0, 0, 0, 255",
-         "reaction_line_color": "0, 0, 0, 255",
-         "font_color": "0, 0, 0, 255",
-         "progress_bar_fill_color": "255, 108, 9, 200",
-         "progress_bar_full_fill_color": "91, 176, 253, 200",
-         "progress_bar_border_color": "255, 204, 153, 200"
+         "compartment_fill_color": [255, 255, 255, 255],
+         "compartment_border_color": [255, 255, 255, 255],
+         "species_fill_color": [255, 255, 255, 255],
+         "species_border_color": [0, 0, 0, 255],
+         "reaction_line_color": [0, 0, 0, 255],
+         "lineending_fill_color": [0, 0, 0, 255],
+         "lineending_border_color": [0, 0, 0, 255],
+         "font_color": [0, 0, 0, 255],
+         "progress_bar_fill_color": [255, 108, 9, 200],
+         "progress_bar_full_fill_color": [91, 176, 253, 200],
+         "progress_bar_border_color": [255, 204, 153, 200]
       },
 
       {
          "style_name": "skyblue",
-         "compartment_fill_color": "3, 219, 252, 255",
-         "compartment_border_color": "3, 219, 252, 255",
-         "species_fill_color": "23, 107, 252, 255",
-         "species_border_color": "119, 3, 252, 255",
-         "reaction_line_color": "3, 252, 157, 255",
-         "font_color": "0, 0, 0, 255",
-         "progress_bar_fill_color": "255, 108, 9, 200",
-         "progress_bar_full_fill_color": "91, 176, 253, 200",
-         "progress_bar_border_color": "255, 204, 153, 200"
+         "compartment_fill_color": [3, 219, 252, 255],
+         "compartment_border_color": [3, 219, 252, 255],
+         "species_fill_color": [23, 107, 252, 255],
+         "species_border_color": [119, 3, 252, 255],
+         "reaction_line_color": [3, 252, 157, 255],
+         "lineending_fill_color": [3, 252, 157, 255],
+         "lineending_border_color": [3, 252, 157, 255],
+         "font_color": [0, 0, 0, 255],
+         "progress_bar_fill_color": [255, 108, 9, 200],
+         "progress_bar_full_fill_color": [91, 176, 253, 200],
+         "progress_bar_border_color": [255, 204, 153, 200]
       }
    ]   
    }
