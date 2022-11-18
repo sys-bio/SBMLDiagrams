@@ -12,7 +12,9 @@ Tutorial
    import tellurium as te
 
    r = te.loada ('''
-   A -> B; v; B -> C; v; C -> D; v;
+   A -> B; v; 
+   B -> C; v; 
+   C -> D; v;
    v = 0
    ''')
 
