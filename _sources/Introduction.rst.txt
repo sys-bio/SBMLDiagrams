@@ -9,9 +9,11 @@ layout and render extension are used, the package will use this data to display 
 SBMLDiagrams can export PNG, JPG, PDF files. SBMLDiagrams can be used to add SBML layout and render 
 to an existing valid SBML model which can subsequently be exported.
 
-We also have an interface of SBMLDiagrams to NetworkX to exploit the variety of layout algorithms. If 
-you are using any of the code, please cite the arXiv (http://arxiv.org/abs/2204.12611) and the PYPI 
-web page (https://pypi.org/project/SBMLDiagrams/).
+We also have an interface of SBMLDiagrams to NetworkX to exploit the variety of layout algorithms. 
+If you are using any of the code, please cite the article 
+(https://doi.org/10.1093/bioinformatics/btac730) and the PYPI web page 
+(https://pypi.org/project/SBMLDiagrams/). 
+
 
 ------------
 Installation 
