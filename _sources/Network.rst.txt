@@ -30,4 +30,6 @@ Network
 
 .. autofunction:: SBMLDiagrams.loadColorStyle
 
+.. autofunction:: SBMLDiagrams.load.exportGraphML
+
 
