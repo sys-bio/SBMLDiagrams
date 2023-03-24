@@ -219,14 +219,15 @@ telecommunications networks.</p>
 
 <dl class="py function">
 <dt id="SBMLDiagrams.load.draw">
-<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">draw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">setImageSize</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">output_fileName</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">reactionLineType</span><span class="o">=</span><span class="default_value">'bezier'</span></em>, <em class="sig-param"><span class="n">showBezierHandles</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">showReactionIds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">showReversible</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">longText</span><span class="o">=</span><span class="default_value">'auto-font'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.draw" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">draw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">setImageSize</span><span class="o">=</span><span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">output_fileName</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">reactionLineType</span><span class="o">=</span><span class="default_value">'bezier'</span></em>, <em class="sig-param"><span class="n">showBezierHandles</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">showReactionIds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">showReversible</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">longText</span><span class="o">=</span><span class="default_value">'auto-font'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.draw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw to a PNG/JPG/PDF file.</p>
 <dl>
-<dt>Args: </dt><dd><p>setImageSize: list-containing two elements indicating the size of the image (if bitmap) [width, height].</p>
+<dt>Args: </dt><dd><p>setImageSize: list-[] (default: default output size), or set by the users with a list
+containing two elements indicating the size of the image [width, height].</p>
 <p>scale: float-determines the figure output size = scale * default output size.
 Increasing the scale will make the resolution higher.</p>
 <p>output_fileName: str-filename: ‘’ (default: will not save the file), 
-or eg ‘fileName.png’. Allowable extensions include ‘.png’, ‘.jpg’, or ‘pdf’.</p>
+or eg ‘fileName.png’. Allowable extensions include ‘.png’, ‘.jpg’, or ‘.pdf’.</p>
 <p>reactionLineType: str-type of the reaction line: ‘straight’ or ‘bezier’ (default).
 If there is no layout information from the SBML file, all reaction lines will look like
 straight lines even when using ‘bezier’ curves.</p>
@@ -234,7 +235,14 @@ straight lines even when using ‘bezier’ curves.</p>
 <p>showReactionIds: bool-show the reaction ids (True) or not (False as default).</p>
 <p>showReversible: bool-show whether the reaction is reversible (True) or not (False as default).</p>
 <p>longText: str-‘auto-font’(default) will automatically decrease the font size to fit the 
-current dimensions of the node; ‘ellipsis’ will show ‘….’ if the text is too long to fit the node.</p>
+current dimensions of the node; or ‘ellipsis’ will show ‘….’ if the text is too long to fit the node.</p>
+</dd>
+<dt>Examples: </dt><dd><p>sd.draw()</p>
+<p>sd.draw(output_fileName = ‘output.pdf’)</p>
+<p>sd.draw(setImageSize = [1000, 1000], output_fileName = ‘output.png’)</p>
+<p>sd.draw(scale = 2., output_fileName = ‘output.jpg’)</p>
+<p>sd.draw(output_fileName = ‘output.png’, reactionLineType = ‘straight’, longText = ‘ellipsis’)</p>
+<p>sd.draw(output_fileName = ‘output.png’, reactionLineType = ‘bezier’, showBezierHandles = True, showReactionIds = True, showReversible = True)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -284,7 +292,7 @@ the width and height of the network.</p>
 <dl class="py function">
 <dt id="SBMLDiagrams.load.export">
 <code class="sig-prename descclassname">SBMLDiagrams.load.</code><code class="sig-name descname">export</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#SBMLDiagrams.load.export" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates an SBML string for the current model.</p>
+<dd><p>This method returns the current model as an SBML string.</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>SBMLStr_layout_render: str-the string of the output sbml file.</p>
 </dd>
