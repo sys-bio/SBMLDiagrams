@@ -453,6 +453,16 @@ def _draw(sbmlStr, setImageSize = [], scale = 1.,\
                                 comp_text_dimension_list.append([text_dim_w, text_dim_h])
 
                     #print(comp_text_content_list)
+                    # if "_compartment_default_" in comp_id_list:
+                    #     numCompGlyphs -= 1
+                    #     idx = comp_id_list.index("_compartment_default_")
+                    #     comp_id_list.remove("_compartment_default_")
+                    #     del compGlyph_id_list[idx]
+                    #     del comp_dimension_list[idx]
+                    #     del comp_position_list[idx] 
+                    #     del comp_text_content_list[idx]
+                    #     del comp_text_position_list[idx]
+                    #     del comp_text_dimension_list[idx]
 
                     reaction_id_list = []
                     reactionGlyph_id_list = []
@@ -1263,6 +1273,9 @@ def _draw(sbmlStr, setImageSize = [], scale = 1.,\
             Rxns_ids  = model.getListOfReactionIds()
             numComps  = model.getNumCompartments()
             Comps_ids = model.getListOfCompartmentIds()
+            # if "_compartment_default_" in Comps_ids:
+            #     numComps -= 1
+            #     Comps_ids.remove("_compartment_default_")
             numNodes = numFloatingNodes + numBoundaryNodes
             comp_node_list = [0]*numComps #Note: numComps is different from numCompGlyphs
             comp_specs_in_list = []
@@ -1292,6 +1305,7 @@ def _draw(sbmlStr, setImageSize = [], scale = 1.,\
                         text_content = ''
                         text_position = [0.,0.]
                         text_dimension = [0.,0.]
+                        #if len(comp_id_list) != 0 and temp_id != "_compartment_default_" and (temp_id in comp_specs_in_list):
                         if len(comp_id_list) != 0:
                         #if mplugin is not None:
                             if temp_id == "_compartment_default_":

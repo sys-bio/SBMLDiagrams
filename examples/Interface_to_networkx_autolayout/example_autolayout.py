@@ -90,8 +90,8 @@ df.draw(output_fileName="spectral.png")
 df.autolayout(layout="spring", scale = 500, k = 2)
 df.draw(output_fileName="spring.png")
 
-df.autolayout(layout="graphviz")
-df.draw(output_fileName="graphviz_dot.png")
+# df.autolayout(layout="graphviz")
+# df.draw(output_fileName="graphviz_dot.png")
 
-df.autolayout(layout="graphviz", graphvizProgram = 'neato')
-df.draw(output_fileName="graphviz_neato.png")
+# df.autolayout(layout="graphviz", graphvizProgram = 'neato')
+# df.draw(output_fileName="graphviz_neato.png")

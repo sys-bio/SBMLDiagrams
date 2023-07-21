@@ -342,6 +342,16 @@ def _SBMLToDF(sbmlStr, reactionLineType = 'bezier', compartmentDefaultSize = [10
                             comp_text_dimension_list.append([text_dim_w, text_dim_h])
 
                 #print(comp_text_content_list)
+                # if "_compartment_default_" in comp_id_list:
+                #     numCompGlyphs -= 1
+                #     idx = comp_id_list.index("_compartment_default_")
+                #     comp_id_list.remove("_compartment_default_")
+                #     del compGlyph_id_list[idx]
+                #     del comp_dimension_list[idx]
+                #     del comp_position_list[idx] 
+                #     del comp_text_content_list[idx]
+                #     del comp_text_position_list[idx]
+                #     del comp_text_dimension_list[idx]
 
                 reaction_id_list = []
                 reactionGlyph_id_list = []
@@ -1801,6 +1811,9 @@ def _SBMLToDF(sbmlStr, reactionLineType = 'bezier', compartmentDefaultSize = [10
         Rxns_ids  = model.getListOfReactionIds()
         numComps  = model.getNumCompartments()
         Comps_ids = model.getListOfCompartmentIds()
+        # if "_compartment_default_" in Comps_ids:
+        #     numComps -= 1
+        #     Comps_ids.remove("_compartment_default_")
         comp_idx_id_list = []
         #Is this the same as comp_node_list?
         numNodes = numFloatingNodes + numBoundaryNodes
@@ -1810,6 +1823,18 @@ def _SBMLToDF(sbmlStr, reactionLineType = 'bezier', compartmentDefaultSize = [10
 
         #if there is layout info:
         if len(spec_id_list) != 0 or len(textGlyph_id_list) != 0 or len(gen_id_list) != 0:
+            # comp_specs_in_list = []
+            # for i in range(numComps):
+            #     comp_node_list[i] = []
+            # for i in range(numComps):#only consider the compartment with species in
+            #     for j in range(numFloatingNodes):
+            #         comp_id = model.getCompartmentIdSpeciesIsIn(FloatingNodes_ids[j])
+            #         if comp_id not in comp_specs_in_list:
+            #             comp_specs_in_list.append(comp_id)
+            #     for j in range(numBoundaryNodes):
+            #         comp_id = model.getCompartmentIdSpeciesIsIn(BoundaryNodes_ids[j])
+            #         if comp_id not in comp_specs_in_list:
+            #             comp_specs_in_list.append(comp_id)
             for i in range(numComps):
                 temp_id = Comps_ids[i]
                 comp_idx_id_list.append([i,temp_id])
@@ -1824,6 +1849,7 @@ def _SBMLToDF(sbmlStr, reactionLineType = 'bezier', compartmentDefaultSize = [10
                 text_content = ''
                 text_position = [0.,0.]
                 text_dimension = [0.,0.]
+                #if len(comp_id_list) != 0 and temp_id != "_compartment_default_" and (temp_id in comp_specs_in_list):
                 if len(comp_id_list) != 0:
                 #if mplugin is not None:
                     if temp_id == "_compartment_default_":
@@ -6969,7 +6995,7 @@ if __name__ == '__main__':
     DIR = os.path.dirname(os.path.abspath(__file__))
     TEST_FOLDER = os.path.join(DIR, "test_sbml_files")
     
-    filename = "test.xml" 
+    #filename = "test.xml" 
     #filename = "feedback.xml"
     #filename = "LinearChain.xml"
     #filename = "test_comp.xml"
