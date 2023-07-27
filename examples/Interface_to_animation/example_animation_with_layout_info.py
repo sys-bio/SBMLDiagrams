@@ -83,7 +83,7 @@ model *Jana_WolfGlycolysis()
 end
 ''')
 DIR = os.path.dirname(os.path.abspath(__file__))
-filename = "Jana_WolfGlycolysis.xml"
+filename = "Jana_WolfGlycolysis-corrected.xml"
 f = open(os.path.join(DIR, filename), 'r')
 sbmlStr = f.read()
 f.close()

@@ -7,7 +7,7 @@ colors = SBMLDiagrams.loadColorStyle("gallery.json")
 DIR = os.path.dirname(os.path.abspath(__file__))
 TEST_FOLDER = os.path.join(DIR, "gallery")
 
-filename = "Jana_WolfGlycolysis.xml"
+filename = "Jana_WolfGlycolysis-corrected.xml"
 f = open(os.path.join(TEST_FOLDER, filename), 'r')
 sbmlStr = f.read()
 f.close()

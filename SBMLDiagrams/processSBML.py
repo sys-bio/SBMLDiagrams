@@ -20,6 +20,7 @@ from SBMLDiagrams import visualizeSBML
 from SBMLDiagrams import styleSBML
 from SBMLDiagrams import point
 import networkx as nx
+from networkx.drawing.nx_agraph import graphviz_layout
 from collections import defaultdict
 import json
 import numpy as np
@@ -6575,6 +6576,7 @@ class load:
             json.dump(self.color_style.__dict__, out_file, indent=6)
         return json.dumps(self.color_style.__dict__)
 
+    #def autolayout(self, layout="spring", scale=200., k=1., iterations=100, graphvizProgram = "dot"):
     def autolayout(self, layout="spring", scale=200., k=1., iterations=100):
 
         """
@@ -6626,14 +6628,30 @@ class load:
                 scale = max(width, height) // 2
             center = [width // 2, height // 2]
 
+            # # Jessie:
+            # for node in nodes:
+            #     graph.add_node(node)
+            # for edge in edges:
+            #     src = edge[0]
+            #     dests = edge[1:]
+            #     for dest in dests:
+            #         graph.add_edge(src, dest)
+            #         g[src].append(dest)
+
             for node in nodes:
                 graph.add_node(node)
-            for edge in edges:
-                src = edge[0]
-                dests = edge[1:]
-                for dest in dests:
-                    graph.add_edge(src, dest)
-                    g[src].append(dest)
+
+            for rxn in reaction_ids:
+                graph.add_node(rxn) #represent the reaction centroid as a node
+                num_rct = model.getNumReactants(rxn)
+                num_prd = model.getNumProducts(rxn)
+                for i in range(num_rct):
+                    rct = model.getReactant(rxn, i)
+                    graph.add_edge(rct, rxn)
+                for i in range(num_prd):
+                    prd = model.getProduct(rxn, i)
+                    graph.add_edge(rxn, prd)
+
 
             pos = defaultdict(list)
 
@@ -6644,10 +6662,10 @@ class load:
             elif layout == "random":
                 pos = nx.random_layout(graph, center=center)
             elif layout == "circular":
-                pos = nx.circular_layout(graph, scale=scale, center=center)
-                 
+                pos = nx.circular_layout(graph, scale=scale, center=center)              
             # elif layout == "graphviz":
-            #     pos = nx.nx_agraph.graphviz_layout(graph, prog=graphvizProgram)
+            #     pos = graphviz_layout(graph, prog = graphvizProgram)
+
             else:
                 raise Exception("no such layout")
 
@@ -6658,7 +6676,10 @@ class load:
                     p = list(p)
                 else:
                     p = p.tolist()
-                self.setNodeAndTextPosition(n, p)
+                try:#node position
+                    self.setNodeAndTextPosition(n, p)
+                except:#reaction centroid position
+                    self.setReactionCenterPosition(n, p)
 
             center_list = []
             handles_list = []
@@ -6712,7 +6733,7 @@ class load:
             #             handles_update2 = [center_position_2_update] + handles2[1:]
             #             self.setReactionCenterPosition(id2, center_position_2_update)
             #             self.setReactionBezierHandles(id2, handles_update2)
-            # #overlap of handles from one reaction
+            #overlap of handles from one reaction
             # for k in range(len(handles_list)):
             #     overlap_handles_idx_list = []
             #     for i in range(len(handles_list[k])):
@@ -6745,7 +6766,117 @@ class load:
             #                 handles_update[idx] = handle_update
             #                 handles_update[idx2] = handle2_update
             #                 self.setReactionBezierHandles(id, handles_update)
-                
+
+    def centroidOverLap(self):
+        sbmlStr = self.export()
+        model = simplesbml.loadSBMLStr(sbmlStr)
+        reaction_ids = model.getListOfReactionIds()
+        center_list = []
+        handles_list = []
+        line_width_list = []
+        for id in reaction_ids:
+            self.setReactionDefaultCenterAndHandlePositions(id)
+            center_position = self.getReactionCenterPosition(id)
+            handles = self.getReactionBezierHandles(id)
+            center_list.append([center_position.x, center_position.y])
+            handles_list_pre = []
+            for i in range(len(handles)):
+                handles_list_pre.append([handles[i].x, handles[i].y])
+            handles_list.append(handles_list_pre)
+            line_width_list.append(self.getReactionLineThickness(id))
+        
+        #overlap of centroids from different reactions
+        overlap_center_idx_list = []
+        for i in range(len(center_list)):
+            for j in [x for x in range(len(center_list)) if x != i]:
+                if [(center_list[i][0]-center_list[j][0])**2+(center_list[i][1]-center_list[j][1])**2]<=2*line_width_list[i]**2:
+                    if [i,j] not in overlap_center_idx_list and [j,i] not in overlap_center_idx_list:
+                        overlap_center_idx_list.append([i,j])
+        
+        for i in range(len(overlap_center_idx_list)):
+            idx = overlap_center_idx_list[i][0]
+            idx2 = overlap_center_idx_list[i][1]
+            id = reaction_ids[idx]
+            id2 = reaction_ids[idx2]
+            center_position = center_list[idx]
+            center_position2 = center_list[idx2]
+            handle_rct1 = handles_list[idx][1]
+            handle_rct1_2 = handles_list[idx2][1]
+            handles = handles_list[idx]
+            handles2 = handles_list[idx2]
+            line_width = line_width_list[idx]
+            radius = math.dist(center_position, handle_rct1)
+            if radius != 0:
+                theta = line_width/radius
+                x = center_position[0] + theta*center_position[1]
+                y = center_position[1] - theta*center_position[0]
+                center_position_update = [x, y]
+                handles_update = [center_position_update] + handles[1:]
+                self.setReactionCenterPosition(id, center_position_update)
+                self.setReactionBezierHandles(id, handles_update)
+                radius2 = math.dist(center_position2, handle_rct1_2)
+                if radius2 !=0 :
+                    theta2 = line_width/radius2
+                    x2 = center_position2[0] - theta2*center_position2[1]
+                    y2 = center_position2[1] + theta2*center_position2[0]
+                    center_position_2_update = [x2, y2]
+                    handles_update2 = [center_position_2_update] + handles2[1:]
+                    self.setReactionCenterPosition(id2, center_position_2_update)
+                    self.setReactionBezierHandles(id2, handles_update2)
+
+    def HandleOverLap(self):
+        sbmlStr = self.export()
+        model = simplesbml.loadSBMLStr(sbmlStr)
+        reaction_ids = model.getListOfReactionIds()
+        center_list = []
+        handles_list = []
+        line_width_list = []
+        for id in reaction_ids:
+            self.setReactionDefaultCenterAndHandlePositions(id)
+            center_position = self.getReactionCenterPosition(id)
+            handles = self.getReactionBezierHandles(id)
+            center_list.append([center_position.x, center_position.y])
+            handles_list_pre = []
+            for i in range(len(handles)):
+                handles_list_pre.append([handles[i].x, handles[i].y])
+            handles_list.append(handles_list_pre)
+            line_width_list.append(self.getReactionLineThickness(id))
+
+        #overlap of handles from one reaction
+        for k in range(len(handles_list)):
+            overlap_handles_idx_list = []
+            for i in range(len(handles_list[k])):
+                for j in [x for x in range(len(handles_list[k])) if x != i]:
+                    if [(handles_list[k][i][0]-handles_list[k][j][0])**2+(handles_list[k][i][1]-handles_list[k][j][1])**2]<=2*line_width_list[k]**2:
+                        if [i,j] not in overlap_handles_idx_list and [j,i] not in overlap_handles_idx_list:
+                            overlap_handles_idx_list.append([i,j])
+            for i in range(len(overlap_handles_idx_list)):
+                idx = overlap_handles_idx_list[i][0]
+                idx2 = overlap_handles_idx_list[i][1]
+                center_position = center_list[k]
+                handle = handles_list[k][idx]
+                handle2 = handles_list[k][idx2]
+                id = reaction_ids[k]
+                line_width = line_width_list[k]
+                #print(center_position, handle, handle2, id, line_width)
+                radius = math.dist(center_position, handle)
+                if radius != 0:
+                    theta = line_width/radius
+                    x = handle[0] + theta*handle[1]
+                    y = handle[1] - theta*handle[0]
+                    handle_update = [x, y]
+                    radius2 = math.dist(center_position, handle2)   
+                    if radius2 != 0:
+                        theta2 = line_width/radius
+                        x2 = handle2[0] - theta2*handle2[1]
+                        y2 = handle2[1] + theta2*handle2[0]
+                        handle2_update = [x2, y2]
+                        handles_update = handles_list[k]
+                        handles_update[idx] = handle_update
+                        handles_update[idx2] = handle2_update
+                        self.setReactionBezierHandles(id, handles_update)
+
+
     def draw(self, setImageSize = [], scale = 1., output_fileName = '', 
         reactionLineType = 'bezier', showBezierHandles = False, 
         showReactionIds = False, showReversible = False, longText = 'auto-font'):
@@ -7017,6 +7148,8 @@ if __name__ == '__main__':
 
     #long text and alias nodes
     #filename = "test_suite/Jana_WolfGlycolysis/Jana_WolfGlycolysis.xml"
+    #filename = "test_suite/Jana_WolfGlycolysis/Jana_WolfGlycolysis-original.xml"
+    #filename = "test_suite/Jana_WolfGlycolysis/Jana_WolfGlycolysis-corrected.xml"
 
     #sbml with errors
     #filename = "test_suite/sbml_error/testbigmodel.xml"
@@ -7070,7 +7203,7 @@ if __name__ == '__main__':
     #filename = "additional/small.xml"
     #filename = "additional/ecoli.xml"
     #filename = "additional/straight_line.xml"
-    #filename = "additional/E_coli_Millard2016.xml"
+    filename = "additional/E_coli_Millard2016.xml"
 
     
 
@@ -7355,7 +7488,7 @@ if __name__ == '__main__':
     # ''')
 
     # df = load(r.getSBML())
-    # df.autolayout()
+    # df.autolayout(layout = "circular", scale = 500)
     # df.draw(output_fileName = 'output.png')
 
     sbmlStr_layout_render = df.export()

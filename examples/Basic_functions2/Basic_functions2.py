@@ -4,7 +4,7 @@ import os
 
 
 dirname = ""
-filename = "Jana_WolfGlycolysis.xml"
+filename = "Jana_WolfGlycolysis-corrected.xml"
 with open(os.path.join(dirname, filename), 'r', encoding="utf8") as f:
      sbmlStr = f.read()
 

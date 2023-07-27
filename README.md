@@ -15,12 +15,12 @@ We also have an interface of SBMLDiagrams to NetworkX to exploit the variety of 
 
 ## A Figure Example
 
-Here is a figure example visualized by SBMLDiagrams below. The Bezier reactions are organized by SBcoyote (https://arxiv.org/abs/2302.09151).
+Here is a figure example visualized by SBMLDiagrams below. 
 
-<img src="https://raw.githubusercontent.com/SunnyXu/SBMLDiagrams/main/docs/Figures/Introduction/Jana_WolfGlycolysis.png" width="350" height="450">
+<img src="https://raw.githubusercontent.com/SunnyXu/SBMLDiagrams/main/docs/Figures/Introduction/Jana_WolfGlycolysis-corrected.png" width="350" height="500">
 
 
-Its animation is also available at https://youtu.be/zF3_fkDp2Xk. 
+Its animation is also available at https://youtu.be/6VgjzrXLLoc. 
 Please see more figure examples in the documentation.
 
 ## Documentation

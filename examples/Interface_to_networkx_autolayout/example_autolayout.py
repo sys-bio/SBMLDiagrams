@@ -84,14 +84,20 @@ end
 ''')
 sbmlStr = r.getSBML()
 df = SBMLDiagrams.load(sbmlStr)
-df.autolayout(layout="spectral", scale = 500, k = 2)
+df.autolayout(layout="spectral", scale = 500)
 df.draw(output_fileName="spectral.png")
 
 df.autolayout(layout="spring", scale = 500, k = 2)
 df.draw(output_fileName="spring.png")
 
-# df.autolayout(layout="graphviz")
-# df.draw(output_fileName="graphviz_dot.png")
+df.autolayout(layout="circular", scale = 500)
+df.draw(output_fileName="circular.png")
 
-# df.autolayout(layout="graphviz", graphvizProgram = 'neato')
-# df.draw(output_fileName="graphviz_neato.png")
+#df.autolayout(layout="random")
+#df.draw(output_fileName="random.png")
+
+#df.autolayout(layout="graphviz")
+#df.draw(output_fileName="graphviz_dot.png")
+
+#df.autolayout(layout="graphviz", graphvizProgram = 'neato')
+#df.draw(output_fileName="graphviz_neato.png")
