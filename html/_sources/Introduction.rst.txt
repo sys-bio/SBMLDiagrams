@@ -52,6 +52,6 @@ different shapes of nodes with different border colors. x_1 and x_5 are examples
 4) An example with long text contents. 
    Its animation is also available at https://youtu.be/zF3_fkDp2Xk.
 
-.. image:: Figures/Introduction/Jana_WolfGlycolysis.png
+.. image:: Figures/Introduction/Jana_WolfGlycolysis-corrected.png
   :width: 400
 
