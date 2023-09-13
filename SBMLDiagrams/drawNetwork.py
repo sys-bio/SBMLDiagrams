@@ -2466,6 +2466,7 @@ def showPlot(surface, save = True, folderName = '', fileName = '', file_format =
                 if showImage:
                     pil_im = Image.open(fileName)
                     display(pil_im)
+                    #pil_im.show()
             elif file_format == 'JPEG':
                 fileName = fileName + '.jpg'
                 image.save(fileName, skia.kJPEG)

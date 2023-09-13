@@ -2150,7 +2150,6 @@ def _setReactionArrowHeadFillColor(df, id, fill_color, opacity = 1.):
     Args:  
         df: DataFrame-initial information.
 
-
         fill_color: list-decimal_rgb 1*3 matrix/str-html_name/str-hex_string (6-digit).
 
         opacity: float-value is between [0,1], default is fully opaque (opacity = 1.).
@@ -2197,6 +2196,60 @@ def _setReactionArrowHeadFillColor(df, id, fill_color, opacity = 1.):
 
     return df_temp
 
+def _setReactionArrowHeadBorderColor(df, id, border_color, opacity = 1.):
+
+    """
+    Set the reaction arrow head border color with a certain reaction id.
+
+    Args:  
+        df: DataFrame-initial information.
+
+        border_color: list-decimal_rgb 1*3 matrix/str-html_name/str-hex_string (6-digit).
+
+        opacity: float-value is between [0,1], default is fully opaque (opacity = 1.).
+
+    Returns:
+        df_temp: DataFrame-information after updates. 
+    
+    """
+
+    df_ReactionData_temp = df[2].copy()
+    df_LineEndingData_temp = df[5].copy()
+    idx_list = df[2].index[df[2]["id"] == id].tolist()
+    line_ending_id = []
+    border_color = _color_to_rgb(border_color, opacity)
+    for i in range(len(idx_list)):
+        line_ending_id.append(df[2].iloc[idx_list[i]]["targets_lineending"][0]) 
+        #df_ReactionData_temp.at[idx_list[0],"targets_lineending"] = ['line_ending_' + id]
+    if len(line_ending_id) == 1:
+        if line_ending_id != ['line_ending_' + id]:
+            df_ReactionData_temp.at[idx_list[0],"targets_lineending"] = ['line_ending_' + id]
+            idx_lineending = df_LineEndingData_temp.index[df[5]["id"] == line_ending_id[0]].tolist()
+            if len(idx_lineending) == 1:
+                row = len(df[5])
+                LineEndingData_row_dct = df_LineEndingData_temp.to_dict('records')[idx_lineending[0]]
+                keys = list(LineEndingData_row_dct.keys())
+                values = list(LineEndingData_row_dct.values())
+                for k in range(len(keys)):
+                    LineEndingData_row_dct[keys[k]] = [values[k]]
+                df_LineEndingData_temp = pd.concat([df_LineEndingData_temp,\
+                                pd.DataFrame(LineEndingData_row_dct)], ignore_index=True)
+                df_LineEndingData_temp.at[row,"id"] = 'line_ending_' + id
+                df_LineEndingData_temp.at[row,"border_color"] = border_color
+        else:
+            idx_lineending = df_LineEndingData_temp.index[df[5]["id"] == line_ending_id[0]].tolist()
+            if len(idx_lineending) == 1:
+                df_LineEndingData_temp.at[idx_lineending[0],"border_color"] = border_color
+            else:
+                raise Exception("There is no initial arrow head information to edit.")
+        
+    else:
+        raise Exception("This is not a valid id.")
+
+    df_temp = (df[0], df[1], df_ReactionData_temp, df[3], df[4], df_LineEndingData_temp, df[6])
+
+    return df_temp
+
 def _setReactionArrowHeadShape(df, id, shape_type_list, shape_info_list):
 
     """
@@ -2219,7 +2272,8 @@ def _setReactionArrowHeadShape(df, id, shape_type_list, shape_info_list):
         [[cx, cy], [rx, ry]], where each number is a floating number from 0 to 100.
         c represent the center of the ellipse, and r represents its radii.
         if rectangle:
-        [] 
+        [w, h], where each number is a floating number from 0 to 100. w represents the
+        width of the rectangle, and h represents the height of the rectangle.
 
     Returns:
         df_temp: DataFrame-information after updates. 
@@ -2243,8 +2297,15 @@ def _setReactionArrowHeadShape(df, id, shape_type_list, shape_info_list):
                 else:
                     raise Exception("This is not a valid polygon shape info.")
             elif shape_type == 'rectangle':
-                if shape_info != []:
+                if isinstance(shape_info, list) and len(shape_info) == 2:
+                    if all((float(item) >= 0. and float(item) <= 100.) for item in shape_info):
+                        pass
+                    else:
+                        raise Exception("This is not a valid rectangle shape info.")
+                else:
                     raise Exception("This is not a valid rectangle shape info.")
+                # if shape_info != []:
+                #     raise Exception("This is not a valid rectangle shape info.")
             elif shape_type == 'ellipse':
                 # [[0.0, 0.0], [100.0, 100.0]]
                 if isinstance(shape_info, list) and len(shape_info) == 2:
@@ -2431,7 +2492,6 @@ def _setReactionModifierHeadFillColor(df, id, fill_color, opacity = 1., mod_idx 
     Args:  
         df: DataFrame-initial information.
 
-
         fill_color: list-decimal_rgb 1*3 matrix/str-html_name/str-hex_string (6-digit).
 
         opacity: float-value is between [0,1], default is fully opaque (opacity = 1.).
@@ -2469,6 +2529,61 @@ def _setReactionModifierHeadFillColor(df, id, fill_color, opacity = 1., mod_idx 
             idx_lineending = df_LineEndingData_temp.index[df[5]["id"] == line_ending_id[0]].tolist()
             if len(idx_lineending) == 1:
                 df_LineEndingData_temp.at[idx_lineending[0],"fill_color"] = fill_color
+            else:
+                raise Exception("There is no initial modifier head information to edit.")
+        
+    else:
+        raise Exception("This is not a valid id.")
+
+    df_temp = (df[0], df[1], df_ReactionData_temp, df[3], df[4], df_LineEndingData_temp, df[6])
+
+    return df_temp
+
+def _setReactionModifierHeadBorderColor(df, id, border_color, opacity = 1., mod_idx = 0):
+
+    """
+    Set the reaction modifier head border color with a certain reaction id.
+
+    Args:  
+        df: DataFrame-initial information.
+
+        border_color: list-decimal_rgb 1*3 matrix/str-html_name/str-hex_string (6-digit).
+
+        opacity: float-value is between [0,1], default is fully opaque (opacity = 1.).
+        
+        mod_idx: int-the index of the modifier: 0 to number of modifiers -1.
+
+    Returns:
+        df_temp: DataFrame-information after updates. 
+    
+    """
+
+    df_ReactionData_temp = df[2].copy()
+    df_LineEndingData_temp = df[5].copy()
+    idx_list = df[2].index[df[2]["id"] == id].tolist()
+    line_ending_id = []
+    border_color = _color_to_rgb(border_color, opacity)
+    for i in range(len(idx_list)):
+        line_ending_id.append(df[2].iloc[idx_list[i]]["modifiers_lineending"][mod_idx]) 
+    if len(line_ending_id) == 1:
+        if line_ending_id != ['line_ending_modifier_' + id + '_' + str(mod_idx)]:
+            df_ReactionData_temp.at[idx_list[0],"modifiers_lineending"][mod_idx] ='line_ending_modifier_' + id + '_' + str(mod_idx)
+            idx_lineending = df_LineEndingData_temp.index[df[5]["id"] == line_ending_id[0]].tolist()
+            if len(idx_lineending) == 1:
+                row = len(df[5])
+                LineEndingData_row_dct = df_LineEndingData_temp.to_dict('records')[idx_lineending[0]]
+                keys = list(LineEndingData_row_dct.keys())
+                values = list(LineEndingData_row_dct.values())
+                for k in range(len(keys)):
+                    LineEndingData_row_dct[keys[k]] = [values[k]]
+                df_LineEndingData_temp = pd.concat([df_LineEndingData_temp,\
+                                pd.DataFrame(LineEndingData_row_dct)], ignore_index=True)
+                df_LineEndingData_temp.at[row,"id"] = 'line_ending_modifier_' + id + '_' + str(mod_idx)
+                df_LineEndingData_temp.at[row,"border_color"] = border_color
+        else:
+            idx_lineending = df_LineEndingData_temp.index[df[5]["id"] == line_ending_id[0]].tolist()
+            if len(idx_lineending) == 1:
+                df_LineEndingData_temp.at[idx_lineending[0],"border_color"] = border_color
             else:
                 raise Exception("There is no initial modifier head information to edit.")
         
