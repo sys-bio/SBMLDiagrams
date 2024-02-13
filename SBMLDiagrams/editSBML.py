@@ -342,7 +342,7 @@ def _setCompartmentTextFontColor(df, id, txt_font_color, opacity):
 def _setCompartmentTextLineWidth(df, id, txt_line_width):
 
     """
-    Set the compartment text line width.
+    Set the compartment text line width (the stroke width value of the TEXTGLYPH).
 
     Args:  
         df: DataFrame-initial information.
@@ -1644,7 +1644,7 @@ def _setNodeTextFontColor(df, id, txt_font_color, opacity, alias = 0):
 def _setNodeTextLineWidth(df, id, txt_line_width, alias = 0):
 
     """
-    Set the node text line width.
+    Set the node text line width (the stroke width value of the TEXTGLYPH).
 
     Args:  
         df: DataFrame-initial information.
@@ -2880,7 +2880,7 @@ def _setTextFontColor(df, txt_id, txt_font_color, opacity):
 def _setTextLineWidth(df, txt_id, txt_line_width):
 
     """
-    Set the arbitrary text line width.
+    Set the arbitrary text line width (the stroke width value of the TEXTGLYPH).
 
     Args:  
         df: DataFrame-initial information.

@@ -2451,7 +2451,7 @@ def showPlot(surface, save = True, folderName = '', fileName = '', file_format =
             image.save(tmpfileName, skia.kPNG)
             if showImage:
                 pil_im = Image.open(tmpfileName)
-                display(pil_im)
+                display(pil_im);
                 #pil_im.show()
         
         #self.surface.write_to_png(tmpfileName)
@@ -2465,20 +2465,20 @@ def showPlot(surface, save = True, folderName = '', fileName = '', file_format =
                 image.save(fileName, skia.kPNG)
                 if showImage:
                     pil_im = Image.open(fileName)
-                    display(pil_im)
+                    display(pil_im);
                     #pil_im.show()
             elif file_format == 'JPEG':
                 fileName = fileName + '.jpg'
                 image.save(fileName, skia.kJPEG)
                 if showImage:
                     pil_im = Image.open(fileName)
-                    display(pil_im)  
+                    display(pil_im);  
             elif file_format == 'PDF':
                 fileName = fileName + '.png'
                 image.save(fileName, skia.kPNG)
                 if showImage:
                     pil_im = Image.open(fileName)
-                    display(pil_im)
+                    display(pil_im);
                     #pil_im.show() 
                     # imagepdf = pil_im.convert('RGB')
                     # imagepdf.save(fileNamepdf)

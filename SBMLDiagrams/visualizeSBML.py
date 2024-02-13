@@ -399,11 +399,12 @@ def _draw(sbmlStr, setImageSize = [], scale = 1.,\
         try: #invalid sbml
             ### from here for layout ###
             document = libsbml.readSBMLFromString(sbmlStr)
-            # if document.getNumErrors() != 0:
-            #     raise Exception("There are errors in the sbml file.")
             if document.getNumErrors() != 0:
                 errMsgRead = document.getErrorLog().toString()
-                raise Exception("Errors in SBML Model: ", errMsgRead)
+                if document.getNumErrors(libsbml.LIBSBML_SEV_ERROR) != 0:
+                    raise Exception("Errors in SBML Model: ", errMsgRead)
+                else:
+                    print("Warning errors in SBML Model: ", errMsgRead)
             model_layout = document.getModel()
             try:
                 mplugin = model_layout.getPlugin("layout")
