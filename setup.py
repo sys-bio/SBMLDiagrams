@@ -31,7 +31,7 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     author='Jin Xu, Jessie Jiang, Herbert M. Sauro',
-    author_email='jxu2019@uw.edu',
+    author_email='jin.xu.phys@gmail.com',
     url='https://github.com/sys-bio/SBMLDiagrams',
     license='MIT License',
     install_requires=[
